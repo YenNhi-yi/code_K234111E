@@ -3,17 +3,20 @@ margin:0;
 padding:0; 
 } 
 #container 
-{ border:1px solid blue; 
+{ 
+border:1px solid blue; 
 background:gray; 
 float:left; 
 top: 60px; 
 text-indent:0px; 
 } 
-#container ul{ 
+#container ul
+{ 
 float:left; 
 list-style:none 
 } 
-#container ul li{ 
+#container ul li
+{ 
 position:relative; 
 float:left; 
 } 
@@ -31,14 +34,16 @@ padding:.3em 6px;
 } 
 #container li ul 
 {
-    position:absolute; 
+position:absolute; 
 display:none; 
 width:10em 
 } 
-#container li:hover ul {  
+#container li:hover ul 
+{  
 display:block; 
 } 
-#container ul li ul li{  
+#container ul li ul li
+{  
 width:100%; 
 border:1px solid green  
 } 
