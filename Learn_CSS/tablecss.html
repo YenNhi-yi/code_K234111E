@@ -1,0 +1,85 @@
+<html>
+<head>
+    <title> Nguyễn Thị Yến Nhi </title>
+    <style type = "text/css">
+        thead{
+            background-color: purple;
+            font-weight: bolder;
+            color:white
+        }
+        tbody tr:nth-child(2n) /* tô màu dòng chẵn */
+        { 
+            background-color: yellow;
+        }
+        tbody tr:nth-child(2n+1)
+        {
+            background-color: aqua;
+        }
+        tfoot tr{
+            background-color: green;
+            font-weight: bold;
+            color: yellow;
+        }
+        tbody tr:hover
+        {
+            color:red;
+            font-style: italic;
+            cursor: pointer;
+            
+        }
+    </style>
+
+</head>
+<body>
+    <table border = "1">
+    <caption> List of products </caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+        
+    </thead>
+    <tbody>
+        <tr>
+            <th>P01</th>
+            <th>Coca</th>
+            <th>100</th>
+            <th>15,000</th>
+        </tr>
+        <tr>
+            <th>P02</th>
+            <th>Pepsi</th>
+            <th>90</th>
+            <th>20,000</th>
+        </tr>
+        <tr>
+            <th>P03</th>
+            <th>Aqua</th>
+            <th>110</th>
+            <th>5,000</th>
+        </tr>
+        <tr>
+            <th>P04</th>
+            <th>Spant</th>
+            <th>40</th>
+            <th>18,000</th>
+        </tr>
+        <tr>
+            <th>P05</th>
+            <th>Sting</th>
+            <th>70</th>
+            <th>13,000</th>
+        </tr>
+    </tbody>
+    </table>
+    <tfoot>
+        <tr>
+            <td colspan="4"> Designed by NHI</td>
+        </tr>
+    </tfoot>
+    
+</body>
+</html>
