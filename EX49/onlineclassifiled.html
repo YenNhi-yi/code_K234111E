@@ -1,0 +1,121 @@
+<html>
+<head>
+    <title> Nguyễn Thị Yến Nhi </title>
+    <style>
+        body 
+        {
+            background-color: #ccf5f9;
+            font-family: "Times New Roman", serif;
+        }
+        h1
+        {
+            color: red;
+            margin-top: 0;
+        }
+    </style>
+    <script>
+        function doSearch() 
+        {
+            alert("Search simulation...");
+        }
+        function showHelp() 
+        {
+            alert("Displays 1 help page (Student optional).");
+        }
+        function doCancel() 
+        {
+            alert("Form data cleared!");
+        }
+  </script>
+</head>
+<body>
+    <h1> Online Classifields Search Form</h1>
+    <hr/>
+    <form>
+    <h4> 1) Search for a classsifield in the following sections:</h4>
+        <table>
+            <tr>
+                <td>
+                    <input type="radio" name="ra1" id="emp1"/>
+                    <label for="emp1"> Employment </label>
+                </td>
+                <td>
+                    <input type="radio" name="ra1" id="pers1"/>
+                    <label for="pers"> Personal </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="ra1" id="sale1"/>
+                    <label for="sale1"> For Sale </label>
+                </td>
+                <td>
+                    <input type="radio" name="ra1" id="misc1"/>
+                    <label for="misc1"> Miscellanecus </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="ra1" id="house1"/>
+                    <label for="house1"> Housing </label>
+                </td>
+                <td>
+                    <input type="radio" name="ra1" id="all1"/>
+                    <label for="all1"> All of the above </label>
+                </td>
+            </tr>
+        </table>
+    <h4> 2) Search the following publications:</h4>
+    <table>
+        <tr>
+            <td>
+                <input type="checkbox" name="mid" id="mid"/>
+                <label for="mid">Midwest times</label>
+            </td>
+            <td>
+                <input type="checkbox" name="mod" id="mod"/>
+                <label for="mod">Modern News</label>
+            </td>
+            <td>
+                <input type="checkbox" name="emp" id="emp"/>
+                <label for="emp">Employment today</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="lake" id="lake"/>
+                <label for="lake">GrateLakes Classifieds</label>
+            </td>
+            <td>
+                <input type="checkbox" name="daily" id="daily"/>
+                <label for="daily">Middleton Daily</label>
+            </td>
+            <td>
+                <input type="checkbox" name="town" id="town"/>
+                <label for="town">Cashtown Daily Newws</label>
+            </td>
+        </tr>
+    </table>
+    <h4> 3) From to 
+        <input type="text" placeholder="mm/dd/yy"> to
+        <input type="text" placeholder="mm/dd/yy">
+    </h4>
+    <h4> 4) Enter a few keywords to describe the classified.</h4>
+        <input type="text" name="clas" style="width:60%;"/>
+    <h4> 5) Click one of the option below:</h4>
+    <table>
+        <tr>
+            <td>
+               <img src="images/Search.gif" alt="Search" onclick="doSearch()"/>
+            </td>
+            <td>
+                <img src="images/Help.gif" alt="Help" onclick="showHelp()"/>
+            </td>
+            <td>
+                <img src="images/Cancel.gif" alt="Cancel" onclick="doCancel()"/>
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<html>
+<head>
+    <title>Nguyen Thi Yen Nhi</title>
+    <style>
+        body 
+        {
+             background-color: #99CCFF; font-family: 'Times New Roman', Times, serif; 
+        }
+        table
+        {
+            margin: 20px;
+            border-collapse: collapse;
+        }
+        td 
+        { 
+            padding: 5px; 
+        }
+        td 
+        { 
+            padding: 5px; 
+        }
+        textarea 
+        {
+             width: 200%; height: 60px; 
+        }
+        
+    </style>
+</head>
+<body>
+    <p align="center">
+        <img src="images/Jackson.gif"/>
+    </p>
+    <h2 align="center"> Registration Form </h2>
+    
+        <form action="#" method="get">
+            <table>
+                <caption> Register your Electronics product here</caption>
+
+                <tr>
+                <td style="width: 193px;">
+                    <label for="username">First name:</label>
+                </td>
+                <td colspan="2">
+                    <input type = "text" name="username" id="username"/>
+                </td>
+                <td>
+                    <label for="username1">Last Name:</label>
+                </td>
+                <td colspan="2">
+                    <input type = "text" name="username1" id="username1"/>
+                </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="address1">
+                        Address#1:</label></td>
+                    <td colspan="5">
+                        <input type="text" name="address1" id="address1"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="address2">
+                        Address#2:</label></td>
+                    <td colspan="5">
+                        <input type="text" name="address2" id="address2"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="city">City:</label></td>
+                    <td>
+                        <input type="text" name="city" id="city"/>
+                    </td>
+                    <td>
+                        <label for="state">
+                            State:
+                        </label>
+                    </td>
+                    <td>
+                        <input type = "text" name="state" id="state"  size="6"/>
+                    </td>
+                    <td>
+                        <label for="zip">
+                            Zip:
+                        </label>
+                    </td>
+                    <td>
+                        <input type = "text" name="zip" id="zip"  size="6"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="country">
+                            Country:
+                        </label>
+                    </td>
+                    <td>
+                        <input type = "text" name="country" id="country"/>
+                    </td>
+                </tr>                
+            </table>
+             <hr/>
+            <table>
+                <tr>
+                    <td>
+                        <label for="product">
+                            Product:
+                        </label>
+                    </td>
+                    <td colspan="4">
+                        <select>
+                            <option value="1"> ScanMaster</option>
+                            <option value="2"> Scannomal</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <lable for="dpur"> Date Purchased: </lable>
+                    </td>
+                    <td colspan="4">
+                        <input type="text" name="dpur" id="dpur"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <lable for="ser"> Serial#: </lable>
+                    </td>
+                    <td colspan="4">
+                        <input type="text" name="ser" id="ser"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="3">Used for:</td>
+                    <td>
+                        <input type="radio" name="ra1" id="home1"/>
+                        <label for="home1"> Home</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="ra1" id="edi1"/>
+                        <label for="edi1"> Educational Institution </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="ra1" id="bu1"/>
+                        <label for="bu1"> Business </label>
+                    </td>
+                    <td>
+                        <input type="radio" name="ra1" id="other1"/>
+                        <labe for="other1"> Other </labe>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="ra1" id="gov1"/>
+                        <label for="gov1"> Government </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2">
+                        <label for="sys">System (check all that apply):</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="win" id="win1"/>
+                        <label for="win1"> Windows </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="ui" id="ui1"/>
+                        <label for="ui1"> UNIX </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="mar" id="mar1"/>
+                        <label for="mar1"> Macintosh </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="other" id="other2"/>
+                        <label for="other2"> Other </label>
+                    </td>
+                </tr>
+            </table>
+            <hr/>
+            <table>
+                <tr>
+                    <td rowspan="2" style="width: 193px;"> Comments?</td>
+                    <td colspan="2"> <textarea name="comments"></textarea> </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="submit" value = "Click to register"/>
+                    </td>
+                
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="reset" value = "Click to cancel"/>
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+
+</body>
+</html>
