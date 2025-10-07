@@ -19,7 +19,7 @@
     <label for="tc2"> Vip Customer</label>
     <br/>
     <p>Address:</p>
-    <select name="address" id="address">
+    <select name="address" id="address" size="2">
         <option value="1"> Hà Nội</option>
         <option value="2"> HCM</option>
         <option value="3" style="background-color: yellow;"> Bac Giang</option>
@@ -32,6 +32,23 @@
         <option value="3">Seafood</option>
         <option value="4">Vegetable</option>
     </select>
+    <select name="menu">
+        <optgroup label="Coffee">
+            <option value="milkcofeee">Milk Coffee</option>
+            <option value="blackcoffee">Black Coffee</option>
+        </optgroup>
+        <optgroup label="Fruit">
+            <option value="Mango">Mango</option>
+            <option value="Guava"> Guava </option>
+            <option value="Durian"> Durian </option>
+            <option value="Pineapple"> Pineapple </option>
+        </optgroup>
+    </select>
+    <label for="feedback">Your feedback:</label><br>
+    <textarea name="feedback" rows="5" cols="40">
+Write your feedback here...
+    </textarea>
+
     </form>
 </body>
 </html>

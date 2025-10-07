@@ -1,0 +1,31 @@
+<html>
+<head>
+    <script>
+        function show_image()
+        {
+            //step 1: get image object by taylor_avatar id
+            img = document.getElementById("taylor_avatar");
+            // step 2: set style attribute for show image
+            img.setAttribute("style", "display:block");
+        }
+        function hide_image()
+        {
+            //step 1: get image object by taylor_avatar id
+            img=document.getElementById (taylor_avatar)
+            // step 2: set style attribute for show image
+            img.setAtribute("style","display:none")
+        }
+    </script>
+</head>
+<body>
+    <form name="myform">
+        <input type="radio" name="myimage" id="img1" onchange="show_image()"/>
+        <label for="img1"> Show Image </label>
+        <br/>
+        <input type="radio" name="myimage" id="img2" onchange="hide_image()">
+        <label for="img2"> Hide Image </label>
+        <br/>
+        <img src="../images/beh.jpg" id= "taylor_avater" name="taylor_avater" width="100" height="auto"/>
+    </form>
+</body>
+</html>

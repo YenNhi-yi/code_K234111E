@@ -1,0 +1,106 @@
+<html>
+<head>
+    <title> Nguyen Thi Yen Nhi </title>
+    <style>
+        body 
+        {
+            background-color: #ccf5f9;
+            font-family: "Times New Roman", serif;
+        }
+    </style>
+</head>
+<body>
+    <p align="center"><img src="image/DeLong.jpg" width="200" height="auto"/></p>
+    <h3> Travel Expense Report </h3>
+    <hr/>
+    <p>
+        <label for="username">1)First Name:</label>
+        <input type="text" name="username" id="username">
+        <label for="username1">Last Name:</label>
+        <input type="text" name="username1" id="username2">
+    </p>
+    <p>
+        <label for="number">2) Social Security Number:</label>
+        <input type="text" name="number" id="number">
+    </p>
+    <p>
+        3)Department
+        <select>
+            <option value="1">Accounting</option>
+            <option value="2">Foreign language</option>
+        </select>
+    </p>
+    <p>
+        <labe for="comments"> 4)Describe the purpose of your trip</labe> <br/> &nbsp; <br/>
+        <textarea name="comments" id="comments" rows="4" cols="40"></textarea>
+    </p>
+    <p>
+        5) Itemize your travel expenses
+        <p>
+            <table border="1">
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="mm/dd/yy"></td>
+                    <td><input type="text"></td>
+                    <td>
+                        <select>
+                            <option value="1">Meal</option>
+                            <option value="2">Drink</option>
+                        </select>
+                    </td>
+                    <td> <input type="text"/></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="mm/dd/yy"></td>
+                    <td><input type="text"></td>
+                    <td>
+                        <select>
+                            <option value="1">Meal</option>
+                            <option value="2">Drink</option>
+                        </select>
+                    </td>
+                    <td> <input type="text"/></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="mm/dd/yy"></td>
+                    <td><input type="text"></td>
+                    <td>
+                        <select>
+                            <option value="1">Meal</option>
+                            <option value="2">Drink</option>
+                        </select>
+                    </td>
+                    <td> <input type="text"/></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="mm/dd/yy"></td>
+                    <td><input type="text"></td>
+                    <td>
+                        <select>
+                            <option value="1">Meal</option>
+                            <option value="2">Drink</option>
+                        </select>
+                    </td>
+                    <td> <input type="text"/></td>
+                </tr>
+            </table>
+        </p>
+    </p>
+    <p>
+        6) Have you submitted your receipts?
+        <input type="radio" name="rad1" id="rad1"/>
+        <label for="rad1"> Yes </label>
+        <input type="radio" name="rad2" id="rad2"/>
+        <label for="rad2"> No </label>
+        <br/> &nbsp; <br/>
+        <button type="button">Submit travel expenses</button>  
+        <button type="reset">Reset</button>
+    </p>
+    <p>Question? Contact Debbie Larson in Accounting (ext 2150).</p>
+</body>
+</html>

@@ -1,0 +1,119 @@
+ <html>
+ <head>
+    <title> Nguyễn Thị Yến Nhi </title>
+    <script>
+        normal_customer=0
+        VIP_customer=0
+        function save_customer () 
+        {
+            id=frm_customer_input.customer_id.value
+            name=frm_customer_input.customer_name.value
+            email=frm_customer_input.customer_email.value
+            type=frm_customer_input.type_customer.checked
+            if (type==true)
+                VIP_customer = VIP_customer + 1
+            else
+                normal_customer=normal_customer + 1
+                frm_customer_output.normal_customer.value=normal_customer
+                frm_customer_output.VIP_customer.value=VIP_customer
+                td_customer_id=document.getElementById("td_customer_id")
+                td_customer_id.innerText=id
+                td_customer_name=document.getElementById("td_customer_name")
+                td_customer_name.innerText=name
+                td_customer_email=document.getElementById("td_customer_email")
+                td_customer_email.innerHTML.getElementById="<font color='blue>" + email + "</font>"
+                td_customer_output=document.getElementById("td_customer_output")
+                td_customer_output=setAttribute("style","background-color:yellow")
+        }
+        function show_help_page(){
+            if (comfirm("e, mun giup ha"))
+        {
+            Window.open("https://myuel.uel.edu.vn/default.aspx?pageid=4df58a9e-3011-4470-b1f9-e9f26ccba725&ModuleID=e9bed1ce-cb07-44ed-a585-d2754b43c422" , target="_blank")
+        }
+        }
+    </script>
+ </head>
+ <body>
+    <form name="frm_customer_input">
+        <table>
+            <tr>
+                <td>Customer ID:</td>
+                <td>
+                    <input type="text" name="customer_id" id="customer_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Customer Name:</td>
+                <td>
+                    <input type="text" name="customer_name" id="customer_name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Customer Emai:</td>
+                <td>
+                    <input type="email" name="customer_emai" id="customer_email"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Type of customer:
+                </td>
+                <td>
+                    <input type="checkbox" name="type_customer" id="type_customer"/>
+                    <label for="type_customer"> IS VIP </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <td>
+                        <button type="button" onclick="save_customer()">Save customer</button>
+                        <button type="reset">Clear</button>
+                        <button type="button" onclick="show_help_page">Help</button>
+                    </td>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <form name="frm_customer_output">
+            <table>
+                <tr>
+                    <td>Number of normal Customer:</td>
+                    <td>
+                        <input type="text" name="norm_customer" id="norm_customer"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Number of normal VIP customer:</td>
+                    <td>
+                        <input type="text" name="VIP_customer" id="VIP_customer"/>
+                    </td>
+                </tr>
+            </table>
+            <tr>
+                <td colspan="2">
+                    Lasted customer:
+                </td>
+            </tr>
+            <tr>
+                <td cospan="2" td="td_customer_output">
+                    <table border="1">
+                        <tr>
+                            <td>Custoemr ID:</td>
+                            <td id="td_customer_id"></td>
+                        </tr>
+                         <tr>
+                            <td>Custoemr name:</td>
+                            <td id="td_customer_name"></td>
+                        </tr>
+                         <tr>
+                            <td>Customer Email:</td>
+                            <td id="td_customer_email"></td>
+                        </tr>
+                    </table>
+                </td>
+                
+            </tr>
+
+    </form>
+ </body>
+ </html>
