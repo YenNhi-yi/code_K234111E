@@ -1,0 +1,89 @@
+<html>
+<head>
+    <title>Nguyễn Thi Yến Nhi</title>
+    <style>
+    body 
+    {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    form 
+    {
+      width: 500px;
+    } 
+    label 
+    {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"], input[type="email"], select, textarea 
+    {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    textarea 
+    {
+      height: 120px;
+    }
+    button 
+    {
+      margin-top: 15px;
+      padding: 8px 20px;
+      background-color: #b1004d;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover 
+    {
+      background-color: #d63384;
+    }
+  </style>
+</head>
+<body>
+    <h3>Contact the editorial office</h3>
+    <form action="result.html" method="get">
+        <table>
+            <tr>
+                <td colspan="2">
+                    <label for="name">Full name</label>
+                    <input type="text" name="name" id="name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email"/>
+                </td>
+                <td>Send to
+                <select name="sendto">
+                    <option>Editorial board</option>
+                    <option>News Department</option>
+                    <option>Board of Perspectives</option>
+                    <option>World Board</option>
+                    <option>Business Department</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label>Content</label> 
+                    <textarea name="content"></textarea>
+                </td>
+            </tr>
+        </table>
+        <button type="submit">Send</button>
+    </form>
+</body>
+</html>

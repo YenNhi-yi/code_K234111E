@@ -1,0 +1,16 @@
+<html>
+<head>
+   <title>Nguyễn Thị Yến Nhi</title>
+</head>
+<body>
+    <h2>Message Received</h2>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.write(`<p><b>Full name:</b> ${params.get("fullname")}</p>`);
+    document.write(`<p><b>Email:</b> ${params.get("email")}</p>`);
+    document.write(`<p><b>Send to:</b> ${params.get("sendto")}</p>`);
+    document.write(`<p><b>Title:</b> ${params.get("title")}</p>`);
+    document.write(`<p><b>Content:</b> ${params.get("content")}</p>`);
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<head>
+  <title>Nguyễn Thi Yến Nhi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    p { margin: 8px 0; }
+  </style>
+</head>
+<body>
+  <h3>Product Summary</h3>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    document.write(`<p><b>Mouse:</b> Qty ${params.get("qty1") || 0}, Price: ${params.get("price1")}$, Item total: ${params.get("item1")}</p>`);
+    document.write(`<p><b>Keyboard US:</b> Qty ${params.get("qty2") || 0}, Price: ${params.get("price2")}$, Item total: ${params.get("item2")}</p>`);
+    document.write(`<p><b>USB KingMax:</b> Qty ${params.get("qty3") || 0}, Price: ${params.get("price3")}$, Item total: ${params.get("item3")}</p>`);
+    document.write(`<hr>`);
+    document.write(`<p><b>Total:</b> ${params.get("total")}</p>`);
+  </script>
+</body>
+</html>
