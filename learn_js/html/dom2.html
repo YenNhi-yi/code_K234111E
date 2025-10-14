@@ -1,0 +1,92 @@
+<html>
+<head>
+    <title>Nguyễn Thi Yến Nhi</title>
+    <script type="text/javascript">
+        function process_save_customer()
+        {
+            //step1: get customer_tbody html element
+            customer_tbody=document.getElementById("customer_tbody")
+            //Empty existing data:
+            //customer_tbody.innerHTML=""
+            //step 2: create tr tag:
+            row=document.createElement("tr")
+            //step 2.1 push row into customer_tbody
+            customer_tbody.appendChild(row)
+            //step2.2 create td(customer id)
+            td_id=document.createElement("td")
+            td_id.innerHTML=my_form.customer_id.value
+            //step 2.3 push td_id into row:
+            row.appendChild(td_id)
+            td_name=document.createElement("td")
+            td_name.innerHTML=my_form.customer_name.value
+            row.appendChild(td_name)
+            td_type=document.createElement("td")
+            if (my_form.customer_type.value=="VIP")
+        {
+            td_type.innerHTML="VIP"
+        td_type.setAttribute("style","background")}
+            else
+                td_type.innerHTML="NORMAL"
+            row.appendChild(td_type)
+            
+
+        }
+
+    </script>
+</head>
+<body>
+    <form name="my_form">
+        <table>
+            <fieldset>
+                <legend>Customer Information:</legend>
+                <table>
+                    <tr>
+                        <td>ID:</td>
+                        <td>
+                            <input type="text" name="customer_id" id="customer_id"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Name:</td>
+                        <td><input type="text" name="customer_name" id="customer_name"/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="radio" value="VIP" name="customer_type" id="customer_type_vip"/>
+                            <lable for cuastomer_type_vip>VIP</lable>
+                            <input type="radio" value="VIP" name="customer_type" id="customer_type_noral"/>
+                            <lable for cuastomer_type_normal>Normal</lable>
+                        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" onclick="process_save_customer()"> Save Customer</button>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>List of customer</legend>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <td>ID</td>
+                            <td>Name</td>
+                            <td>Type</td>
+                        </tr>
+                    </thead>
+                    <tbody id="customer_tbody">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </fieldset>
+        </table>
+    </form>
+</body>
+</html>
