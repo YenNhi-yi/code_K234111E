@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Máy tính đơn giản</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    var a, b, ketqua;
+    $(document).ready(function(){
+      $(".ketqua").click(function(){
+        a = $("#sh1").val();
+        b = $("#sh2").val();
+        a = parseFloat(a);
+        b = parseFloat(b);
+
+        if($(".cong").prop('checked'))
+          ketqua = a + b;
+        else if($(".tru").prop('checked'))
+          ketqua = a - b;
+        else if($(".nhan").prop('checked'))
+          ketqua = a * b;
+        else if($(".chia").prop('checked'))
+          ketqua = a / b;
+
+        $("#ketqua").val(ketqua);
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <p id="test">This is some <b>bold</b> text in a paragraph.</p>
+
+  <table border="1" cellpadding="8">
+    <tr>
+      <td>Số hạng 1</td>
+      <td><input type="text" id="sh1"></td>
+    </tr>
+    <tr>
+      <td>Phép tính</td>
+      <td>
+        Cộng <input type="radio" name="pt" class="cong">
+        Trừ <input type="radio" name="pt" class="tru">
+        Nhân <input type="radio" name="pt" class="nhan">
+        Chia <input type="radio" name="pt" class="chia">
+      </td>
+    </tr>
+    <tr>
+      <td>Số hạng 2</td>
+      <td><input type="text" id="sh2"></td>
+    </tr>
+    <tr>
+      <td>Kết quả</td>
+      <td><input type="text" id="ketqua" readonly></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align:center;">
+        <button class="ketqua">=</button>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

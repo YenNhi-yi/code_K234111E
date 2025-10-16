@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài tập jQuery - Hóa đơn điện máy</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+
+      // ======= Xác định loại khách hàng theo ngày sinh =======
+      $(".ngaysinhchon").change(function(){
+        var ngaysinhtam = new Date($(this).val());
+        var ngayhientai = new Date();
+        var tuoi = ngayhientai.getFullYear() - ngaysinhtam.getFullYear();
+        if (tuoi > 18) {
+          $(".old").prop('checked', true);
+        } else {
+          $(".new").prop('checked', true);
+        }
+      });
+
+      // ======= Xử lý chọn sản phẩm =======
+      var tong = 0;
+      var stt = 1;
+      var SanPham = [];
+
+      $('#chonsp').change(function() {
+        var selected = $(this).find('option:selected');
+        var tenSP = selected.text().trim();
+        var giaSP = parseInt(selected.val());
+
+        // Tạo sản phẩm mới
+        SanPham[stt] = {
+          id: stt,
+          ten: tenSP,
+          gia: giaSP,
+          soluong: 1
+        };
+
+        // Thêm hàng mới vào bảng
+        var str = `
+          <tr>
+            <td>${stt}</td>
+            <td>${tenSP}</td>
+            <td>${giaSP}</td>
+            <td>1</td>
+            <td><input type='button' class='xoasp' id='${stt}' name='${giaSP}' value='Xóa'></td>
+          </tr>
+        `;
+        $('#select').append(str);
+
+        // Cập nhật tổng tiền
+        tong += giaSP;
+        $('.sumgia').html(tong + ' đồng');
+
+        // Xử lý nút xóa
+        $("#" + stt).click(function(){
+          var tien = parseInt($(this).attr('name'));
+          tong -= tien;
+          $('.sumgia').html(tong + ' đồng');
+          $(this).closest('tr').remove();
+        });
+
+        stt++;
+      });
+
+    });
+  </script>
+</head>
+<body>
+
+  <h1><b>HÓA ĐƠN CỬA HÀNG ĐIỆN MÁY</b></h1><br>
+
+  <fieldset>
+    <legend>Thông tin khách hàng</legend>
+    <table>
+      <tr>
+        <td>Họ tên khách hàng: <input type="text" class="tenkh"></td>
+        <td>Số điện thoại: <input type="text" class="sdt"></td>
+        <td>Ngày sinh: <input type="date" class="ngaysinhchon"></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          Loại khách hàng:
+          Người lớn <input type="radio" class="old" name="loaikh" disabled>
+          Trẻ em <input type="radio" class="new" name="loaikh" disabled><br>
+          Email: <input type="email" name="email">
+        </td>
+      </tr>
+    </table>
+  </fieldset>
+
+  <table>
+    <tr>
+      <td>
+        <fieldset>
+          <legend>Danh sách sản phẩm</legend>
+          <select id="chonsp" size="7">
+            <option value="5000000">Tủ lạnh Toshiba</option>
+            <option value="20000000">Máy giặt Tishi</option>
+            <option value="500000">Nồi cơm điện Sharp</option>
+            <option value="5000000">Điện thoại A50s</option>
+            <option value="4800000">Điện thoại A50</option>
+            <option value="11000000">iPhone 11</option>
+            <option value="6000000">Tủ lạnh Toshiba thế hệ 2</option>
+          </select>
+        </fieldset>
+      </td>
+      <td>
+        <fieldset>
+          <legend>Ghi chú của khách hàng</legend>
+          <textarea cols="30" rows="8"></textarea>
+        </fieldset>
+      </td>
+    </tr>
+  </table>
+
+  <fieldset>
+    <legend>Danh sách sản phẩm đã chọn</legend>
+    <table id="select" border="1" cellpadding="5">
+      <tr>
+        <th>Mã</th>
+        <th>Tên</th>
+        <th>Giá</th>
+        <th>Số lượng</th>
+        <th>Chức năng</th>
+      </tr>
+    </table>
+  </fieldset>
+
+  <div align="right">
+    <h2>Tổng tiền:</h2>
+    <p class="sumgia">0 đồng</p>
+  </div>
+
+  <div align="center">
+    <button class="muahang">Mua hàng</button>
+  </div>
+
+</body>
+</html>

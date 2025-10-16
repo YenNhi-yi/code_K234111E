@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>Login</title>
+        <script>
+            accounts=[{
+                "User":"admin",
+                "password":"123",
+            },
+            {
+                "User":"employee",
+                "password":"456"
+            },
+        ]
+        </script>
+        <script type="text/javascript">
+            function process_login()
+            {
+                uid=my_form.user_name.value
+                pwd=my_form.password.value
+                login_ac=null
+                for(i=0; i<accounts.length;i++)
+            {
+                acc=accounts[i]
+                if(acc.user==uid && acc.password==pwd)
+            {
+                //login_ac=ac
+                break
+            }
+            if(login_ac==null)
+            {
+                window.location="xml_ajax.html"
+            }
+            }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="my_form">
+            <fieldset>
+                <legend>Login ABC System:</legend>
+                <table>
+                    <tr>
+                        <td rowspan="6">
+                            <img src="images/login.png" width="200px" height="250px"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>User:</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="user_name" id="user_name"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="password" name="password" id="password"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="save_infor" id="save_infor"/>
+                            Save login information
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button type="button" onclick="process_login()">Login</button>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </body>
+</html>
