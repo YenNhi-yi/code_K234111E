@@ -2,7 +2,8 @@
 <head>
   <title>Nguyen Thi Yen Nhi</title>
   <style>
-    body {
+    body 
+    {
       font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
@@ -10,7 +11,8 @@
       background-color: #f7f9fa;
       height: 100vh;
     }
-    table {
+    table 
+    {
       border-collapse: collapse;
       background-color: #fff;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -18,21 +20,25 @@
       border-radius: 6px;
       text-align: center;
     }
-    th {
+    th 
+    {
       background-color: #e3f2fd;
       font-size: 20px;
       padding: 10px;
     }
-    td {
+    td 
+    {
       padding: 6px;
     }
-    textarea {
+    textarea 
+    {
       width: 250px;
       height: 80px;
       resize: none;
       font-size: 14px;
     }
-    button {
+    button 
+    {
       width: 230px;
       padding: 6px;
       background-color: #fafafa;
@@ -41,15 +47,69 @@
       cursor: pointer;
       transition: 0.2s;
     }
-    button:hover {
+    button:hover 
+    {
       background-color: #e1f5fe;
     }
-    .footer {
+    .footer 
+    {
       font-size: 12px;
       color: #555;
       padding: 5px;
     }
   </style>
+    <script>
+    // Store current input
+    let currentText = "";
+
+    function enterData() 
+    {
+      currentText = document.getElementById("inputText").value;
+      document.getElementById("resultText").value = "Data entered successfully!";
+    }
+
+    function countUppercase() 
+    {
+      let count = (currentText.match(/[A-Z]/g) || []).length;
+      document.getElementById("resultText").value = "Uppercase letters: " + count;
+    }
+
+    function toUppercase() 
+    {
+      document.getElementById("resultText").value = currentText.toUpperCase();
+    }
+
+    function toLowercase() 
+    {
+      document.getElementById("resultText").value = currentText.toLowerCase();
+    }
+
+    function displayOneWordPerLine() 
+    {
+      let words = currentText.split(/\s+/);
+      document.getElementById("resultText").value = words.join("\n");
+    }
+
+    function wordCount() 
+    {
+      let words = currentText.trim().split(/\s+/).filter(w => w !== "");
+      document.getElementById("resultText").value = "Word count: " + words.length;
+    }
+
+    function countLowercase() 
+    {
+      let count = (currentText.match(/[a-z]/g) || []).length;
+      document.getElementById("resultText").value = "Lowercase letters: " + count;
+    }
+
+    function countVowelsConsonants() 
+    {
+      let vowels = (currentText.match(/[aeiouAEIOU]/g) || []).length;
+      let consonants = (currentText.match(/[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/g) || []).length;
+      document.getElementById("resultText").value = 
+        "Vowels: " + vowels + "\nConsonants: " + consonants;
+    }
+  </script>
 </head>
 <body>
   <table>
@@ -88,50 +148,5 @@
       </td>
     </tr>
   </table>
-
-  <script>
-    // Store current input
-    let currentText = "";
-
-    function enterData() {
-      currentText = document.getElementById("inputText").value;
-      document.getElementById("resultText").value = "Data entered successfully!";
-    }
-
-    function countUppercase() {
-      let count = (currentText.match(/[A-Z]/g) || []).length;
-      document.getElementById("resultText").value = "Uppercase letters: " + count;
-    }
-
-    function toUppercase() {
-      document.getElementById("resultText").value = currentText.toUpperCase();
-    }
-
-    function toLowercase() {
-      document.getElementById("resultText").value = currentText.toLowerCase();
-    }
-
-    function displayOneWordPerLine() {
-      let words = currentText.split(/\s+/);
-      document.getElementById("resultText").value = words.join("\n");
-    }
-
-    function wordCount() {
-      let words = currentText.trim().split(/\s+/).filter(w => w !== "");
-      document.getElementById("resultText").value = "Word count: " + words.length;
-    }
-
-    function countLowercase() {
-      let count = (currentText.match(/[a-z]/g) || []).length;
-      document.getElementById("resultText").value = "Lowercase letters: " + count;
-    }
-
-    function countVowelsConsonants() {
-      let vowels = (currentText.match(/[aeiouAEIOU]/g) || []).length;
-      let consonants = (currentText.match(/[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/g) || []).length;
-      document.getElementById("resultText").value = 
-        "Vowels: " + vowels + "\nConsonants: " + consonants;
-    }
-  </script>
 </body>
 </html>
