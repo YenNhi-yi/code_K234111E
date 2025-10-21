@@ -1,0 +1,120 @@
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <table border="1">
+        <caption>List of books:</caption>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+                <th>Cover</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="book_tbody">
+
+        </tbody>
+    </table>
+    <script type="text/javascript">
+        var xhr=new XMLHttpRequest();
+        xhr.open("GET","dataset/books_cover.xml",true);
+        xhr.send();
+        xhr.onreadystatechange=function()
+        {
+            if (xhr.readyState==4 && xhr.status==200)
+            {
+                //handling when loading data successfully
+                //Nếu nó chui vào đây được nghĩa là nó đã tải 
+                //dữ liệu về local rồi-->dùng Dom để truy xuất
+                //txt=xhr.responseText
+                //td_xml_string.innerText=txt
+                //var parser = new DOMParser(); 
+                //var xmlDoc = parser.parseFromString(txt,"text/xml");
+
+                var xmlDoc=xhr.responseXML
+                var books = xmlDoc.getElementsByTagName("book");
+                for(i=0; i<books.length;i++)
+            {
+                book=books[i]
+
+                td_title=document.createElement("td")
+                title = book.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+                td_title.innerText=title
+
+                td_author=document.createElement("td")
+                author=book.getElementsByTagName("author")[0].childNodes[0].nodeValue;
+                td_author.innerText=author
+
+                td_year=document.createElement("td")
+                year=book.getElementsByTagName("year")[0].childNodes[0].nodeValue;
+                td_year.innerText=year
+
+                td_cover=document.createElement("td")
+                cover=book.getElementsByTagName("cover")[0].childNodes[0].nodeValue;
+                //td_year.innerText=cover
+                img_cover=document.createElement("img")
+                img_cover.setAttribute("src","images/" + cover)
+                img_cover.setAttribute("width","50") 
+                img_cover.setAttribute("height","100")
+                img_cover.setAttribute("title","view detail")
+                img_cover.setAttribute("style","cursor:pointer")
+                //save memory for tracking:
+                json_book=
+                {
+                    "title":title,
+                    "author":author,
+                    "year":year,
+                    "cover":cover
+                }
+                img_cover.selected_book=json_book
+                img_cover.onclick=function()
+                {
+                    stringJson=JSON.stringify(this.selected_book)
+                    localStorage.setItem("selected_book",stringJson)
+                    window.open("detail.html","_self")
+                }
+
+                td_cover.appendChild(img_cover);
+
+                td_action=document.createElement("td")
+
+                img_delete=document.createElement("img")
+                img_delete.setAttribute("src","images/emove_icon.png")
+                img_delete.setAttribute("style","cursor:pointer")
+
+                td_action.appendChild(img_delete)
+
+                tr=document.createElement("tr")
+                tr.appendChild(td_title)
+                tr.appendChild(td_author)
+                tr.appendChild(td_year)
+                tr.appendChild(td_cover)
+                tr.appendChild(td_action)
+
+                book_tbody.appendChild(tr)
+
+
+                //save memory:
+                img_delete.parent_row=tr
+                img_delete.onclick=function()
+                {
+                    title_remove=thí.parent_row.childNodes[0].innerText
+                    if(confirm("ê xáo hỏ ["+title_remove+"]hả"))
+                {
+                    book_tbody.removeChild(this.parent_row)
+                }
+                }
+            }
+               
+            }
+            else
+            {
+                //handling when data can't be loaded
+            }
+        }
+    </script>
+</body>
+</html>

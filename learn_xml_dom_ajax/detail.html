@@ -1,0 +1,37 @@
+<html>
+<head>
+    
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>Title:</td>
+            <td id="td_title"></td>
+        </tr>
+        <tr>
+            <td>Author:</td>
+            <td id="td_author"></td>
+        </tr>
+        <tr>
+            <td>Year:</td>
+            <td id="td_year"></td>
+        </tr>
+        <tr>
+            <td>Cover:</td>
+            <td id="img_cover"></td>
+        </tr>
+    </table>
+    <a href="book_cover.html">back</a>
+    <script type="text/javascript">
+        json_string=localStorage.getItem("selected_book")
+        book=JSON.parse(json_string)
+        td_title.innerText=book.title
+        td_author.innerText=book.author
+        td_year.innerText=book.year
+        img_cover.src="images/"+book.img_cover
+        img_cover.width="100"
+        img_cover.height="200"
+
+    </script>
+</body>
+</html>
