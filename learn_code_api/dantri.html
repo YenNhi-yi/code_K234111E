@@ -1,9 +1,10 @@
 <html>
     <head>
+        <title>Tiêu đề trang</title>
         <script type="text/javascript">
             function load_weathers()
             {
-                api="https://webpi.dantri.com.vn/misc"
+                api="https://webapi.dantri.com.vn/misc"
                 var xhr=new XMLHttpRequest()
                 xhr.open("get",api,true)
                 xhr.send()
@@ -20,13 +21,13 @@
                     }
                 }
             }
-
             function display_weathers(weathers)
             {
-                for(var i=0;i<weathers.length;i++)
+                for(i=0;i<weathers.length;i++)
                 {
                     weather=weathers[i]
                     tr=document.createElement("tr")
+
                     td_name=document.createElement("td")
                     td_temp=document.createElement("td")
                     td_status=document.createElement("td")
@@ -36,7 +37,7 @@
                     td_temp.innerText=weather.temperature
                     td_status.innerText=weather.clouds
                     img_icon=document.createElement("img")
-                    api_icon="https://openweathermap.org/img/wn/"+weather.icon+"@2x.png"
+                    api_icon=("src","https://openweathermap.org/img/wn/"+weather.icon+"@2x.png")
                     img_icon.setAttribute("src",api_icon)
                     td_icon.appendChild(img_icon)
 
@@ -48,19 +49,17 @@
                     weather_tbody.appendChild(tr)
                 }
             }
-    </script>
+        </script>
     </head>
     <body>
-        <div id="my_div" style="height: 100px;overflow-y: scroll; background-color: yellow;">
-            
-        </div>
+        <div id="my_div" style="height: 100px;overflow-y: scroll; background-color: yellow;"></div>
         <table border="1">
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Temprature</th>
                     <th>Clouds</th>
-                    <th>icon</th>
+                    <th>Icon</th>
                 </tr>
             </thead>
             <tbody id="weather_tbody">

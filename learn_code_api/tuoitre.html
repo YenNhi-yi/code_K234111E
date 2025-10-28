@@ -1,0 +1,263 @@
+<html>
+<head>
+    <title>Nguyễn Thị Yến Nhi</title>
+    <meta charset="UTF-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color:  #b1d4f8;
+            min-height: 100vh;
+            padding: 30px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: rgb(101, 157, 242);
+            margin-bottom: 30px;
+        }
+        
+        .header h3 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(220, 222, 249, 0.2);
+            font-weight: 700;
+        }
+        
+        .search-box {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+        
+        select {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        select:hover {
+            border-color: #4facfe;
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: #4facfe;
+            box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.2);
+        }
+        
+        #my_div {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            min-height: 200px;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #4facfe;
+            font-size: 1.2em;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #4facfe;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error {
+            background: #ffe0e0;
+            color: #d32f2f;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .weather-info {
+            line-height: 1.8;
+        }
+        
+        .weather-info h4 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #e8f4f8;
+            font-weight: 600;
+        }
+        
+        .json-container {
+            background: #1e272e;
+            color: #f8f8f2;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-top: 20px;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        .json-key {
+            color: #4facfe;
+        }
+        
+        .json-string {
+            color: #2ecc71;
+        }
+        
+        .json-number {
+            color: #e67e22;
+        }
+        
+        .placeholder {
+            text-align: center;
+            padding: 70px 20px;
+            color: #95a5a6;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h3>Dự Báo Thời Tiết Việt Nam</h3>
+        </div>
+        
+        <div class="search-box">
+            <select id="provinces" onchange="show_detail_weather_forecast(this.value)">
+                <option value="">-- Chọn tỉnh/thành phố --</option>
+            </select>
+        </div>
+        
+        <div id="my_div">
+            <p class="placeholder">Vui lòng chọn một tỉnh/thành phố để xem dự báo thời tiết</p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var ids=['2347719', '20070078', '20070086', '2347731', '2347730', '20070081', '20070087', '20070084', '20070088', '2347703', '2347704', '20070082', '2347732', '28301718', '20070085', '1252375', '2347720', '28301719', '2347721', '2347722', '2347733', '2347727', '2347728', '2347734', '2347741', '2347736', '2347737', '20070079', '20070080', '2347707', '28301720', '2347738', '2347723', '20070076', '2347708', '2347710', '2347740', '2347709', '2347718', '20070089', '2347742', '2347743', '2347744', '20070091', '2347745', '2347746', '2347711', '20070077', '2347712', '2347747', '2347748', '2347713', '2347715', '2347716', '20070083', '2347749', '2347717', '2347750', '2347751', '2347714', '2347752', '20070090', '2347729', '2347753'];
+        var names=['An Giang', 'Bình Dương', 'Bình Phước', 'Bình Thuận', 'Bình Định', 'Bạc Liêu', 'Bắc Giang', 'Bắc Kạn', 'Bắc Ninh', 'Bến Tre', 'Cao Bằng', 'Cà Mau', 'Cần Thơ', 'Điện Biên', 'Đà Nẵng', 'Đà Lạt', 'Đắk Lắk', 'Đắk Nông', 'Đồng Nai', 'Đồng Tháp', 'Gia Lai', 'Hà Nội', 'TP. Hồ Chí Minh', 'Hà Giang', 'Hà Nam', 'Hà Tĩnh', 'Hòa Bình', 'Hưng Yên', 'Hải Dương', 'Hải Phòng', 'Hậu Giang', 'Khánh Hòa', 'Kiên Giang', 'Kon Tum', 'Lai Châu', 'Long An', 'Lào Cai', 'Lâm Đồng', 'Lạng Sơn', 'Nam Định', 'Nghệ An', 'Ninh Bình', 'Ninh Thuận', 'Phú Thọ', 'Phú Yên', 'Quảng Bình', 'Quảng Nam', 'Quảng Ngãi', 'Quảng Ninh', 'Quảng Trị', 'Sóc Trăng', 'Sơn La', 'Thanh Hóa', 'Thái Bình', 'Thái Nguyên', 'Thừa Thiên Huế', 'Tiền Giang', 'Trà Vinh', 'Tuyên Quang', 'Tây Ninh', 'Vĩnh Long', 'Vĩnh Phúc', 'Vũng Tàu', 'Yên Bái'];
+
+        function load_provinces() {
+            var provinces = document.getElementById("provinces");
+            for (var i = 0; i < ids.length; i++) {
+                var city_id = ids[i];
+                var city_name = names[i];
+                var opt = document.createElement("option");
+                opt.value = city_id;
+                opt.innerText = city_name;
+                opt.setAttribute('data-name', city_name);
+                provinces.appendChild(opt);
+            }
+        }
+
+        load_provinces();
+
+        function syntaxHighlight(json) {
+            if (typeof json != 'string') {
+                json = JSON.stringify(json, null, 2);
+            }
+            json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+                var cls = 'json-number';
+                if (/^"/.test(match)) {
+                    if (/:$/.test(match)) {
+                        cls = 'json-key';
+                    } else {
+                        cls = 'json-string';
+                    }
+                } else if (/true|false/.test(match)) {
+                    cls = 'json-boolean';
+                } else if (/null/.test(match)) {
+                    cls = 'json-null';
+                }
+                return '<span class="' + cls + '">' + match + '</span>';
+            });
+        }
+
+        function show_detail_weather_forecast(value) {
+            if (!value) return;
+            
+            // Lấy tên tỉnh từ dropdown
+            var select = document.getElementById("provinces");
+            var selectedOption = select.options[select.selectedIndex];
+            var cityName = selectedOption.getAttribute('data-name');
+            
+            var proxy = "https://api.codetabs.com/v1/proxy?quest="; 
+            var api = "https://utils3.cnnd.vn/ajax/weatherinfo/" + value + ".htm";
+            var api_proxy = proxy + encodeURIComponent(api);
+            
+            var my_div = document.getElementById("my_div");
+            my_div.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>Đang tải dữ liệu... vui lòng đợi...</p></div>';
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", api_proxy, true);
+            xhr.send();
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        try {
+                            var string_json = xhr.responseText;
+                            var object_json = JSON.parse(string_json);
+                            
+                            var html = '<div class="weather-info">';
+                            // Sử dụng tên từ object_json hoặc từ dropdown nếu undefined
+                            var displayName = object_json.name || cityName || 'Thông tin thời tiết';
+                            html += '<h4>' + displayName + '</h4>';
+                            html += '<div class="json-container">';
+                            html += '<pre>' + syntaxHighlight(object_json) + '</pre>';
+                            html += '</div>';
+                            html += '</div>';
+                            
+                            my_div.innerHTML = html;
+                        } catch (e) {
+                            my_div.innerHTML = '<p class="error">Lỗi khi xử lý dữ liệu: ' + e.message + '</p>';
+                        }
+                    } else {
+                        my_div.innerHTML = '<p class="error">Không thể tải dữ liệu. Mã lỗi: ' + xhr.status + '</p>';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
