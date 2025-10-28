@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VnExpress - Kinh Doanh</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .pub-date {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .news-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .news-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .news-date {
+            font-size: 0.85em;
+            color: #888;
+        }
+
+        .read-more {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: transform 0.2s ease;
+        }
+
+        .read-more:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .news-card {
+                margin-bottom: 10px;
+            }
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2em;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📰 VnExpress - Kinh Doanh</h1>
+            <p class="pub-date">Cập nhật: Thứ Ba, 28/10/2025 13:06:14</p>
+        </header>
+
+        <div class="news-grid" id="newsGrid">
+            <div class="news-card">
+                <img src="https://i1-kinhdoanh.vnecdn.net/2025/10/28/202510280837039446-z7162606245-9984-3535-1761628341.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=YiEla4XnCH9fS8BzFdXPDw" alt="Carbon Trading" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Việt Nam dự kiến vận hành thí điểm sàn giao dịch carbon vào cuối 2026</h2>
+                    <p class="news-description">Theo Tổng thư ký Quốc hội, Việt Nam đặt mục tiêu bước đầu hình thành thị trường carbon, vận hành thí điểm sàn giao dịch tín chỉ carbon vào cuối 2026.</p>
+                    <div class="news-meta">
+                        <span class="news-date">28/10/2025 12:11</span>
+                        <a href="https://vnexpress.net/viet-nam-du-kien-van-hanh-thi-diem-san-giao-dich-carbon-vao-cuoi-2026-4956659.html" target="_blank" class="read-more">Đọc thêm</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://i1-kinhdoanh.vnecdn.net/2025/10/28/img-9171-fb-1755773040-1761621-1201-5302-1761621420.png?w=1200&h=0&q=100&dpr=1&fit=crop&s=6Or899Ka7bVqU79ljQ5Aww" alt="Novaland" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Novaland lỗ hơn nghìn tỷ đồng</h2>
+                    <p class="news-description">Doanh thu tài chính giảm mạnh và lỗ chênh lệch tỷ giá khiến lợi nhuận Novaland trong quý III âm hơn 1.153 tỷ đồng.</p>
+                    <div class="news-meta">
+                        <span class="news-date">28/10/2025 11:37</span>
+                        <a href="https://vnexpress.net/novaland-lo-hon-nghin-ty-dong-4956689.html" target="_blank" class="read-more">Đọc thêm</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://i1-kinhdoanh.vnecdn.net/2025/10/28/233a0916-1761622464-1761622485-6741-1761622575.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ygkDORp_vtaQwaLURKghdQ" alt="Gold Price" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Mỗi lượng vàng giảm gần 2 triệu đồng</h2>
+                    <p class="news-description">Giá vàng trong nước giảm gần 2 triệu mỗi lượng theo thị trường quốc tế, song mức chênh lệch vẫn neo cao gần 20 triệu đồng.</p>
+                    <div class="news-meta">
+                        <span class="news-date">28/10/2025 11:10</span>
+                        <a href="https://vnexpress.net/moi-luong-vang-giam-gan-2-trieu-dong-4956698.html" target="_blank" class="read-more">Đọc thêm</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://i1-kinhdoanh.vnecdn.net/2025/10/28/6389482824972952469127629-1761-6732-7291-1761617785.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=dl5gtPTzzITjt55Z9ovRUA" alt="Phuc Long" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Phúc Long đạt doanh thu kỷ lục từ khi về tay Masan</h2>
+                    <p class="news-description">Chuỗi trà và cà phê Phúc Long có doanh thu 516 tỷ đồng trong quý III, mức cao nhất từ khi về tay Masan, nhờ bán bánh và làm mới thương hiệu.</p>
+                    <div class="news-meta">
+                        <span class="news-date">28/10/2025 10:11</span>
+                        <a href="https://vnexpress.net/phuc-long-dat-doanh-thu-ky-luc-tu-khi-ve-tay-masan-4956627.html" target="_blank" class="read-more">Đọc thêm</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://i1-kinhdoanh.vnecdn.net/2025/10/28/ttthai17615766598531580085844-9128-8015-1761614524.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=v4GLk48lXSi7S-NMYBihAg" alt="Vietnam Thailand" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Việt - Thái nghiên cứu lập liên doanh kiểm soát giá, mở rộng thị trường</h2>
+                    <p class="news-description">Thủ tướng đề nghị Thái Lan cùng nghiên cứu lập các liên doanh để kiểm soát giá cả, khai phá thị trường mới, và tăng hợp tác trong khai thác dầu khí, khí hóa lỏng.</p>
+                    <div class="news-meta">
+                        <span class="news-date">28/10/2025 09:17</span>
+                        <a href="https://vnexpress.net/viet-thai-nghien-cuu-lap-lien-doanh-kiem-soat-gia-mo-rong-thi-truong-4956576.html" target="_blank" class="read-more">Đọc thêm</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://i1-kinhdoanh.vnecdn.net/2025/10/28/amazon-new-jersey-1761615769-1-7931-1760-1761615856.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=PLpyWElJ5FQ-3gOQHVl0_g" alt="Amazon" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Amazon có thể sa thải 30.000 nhân viên</h2>
+                    <p class="news-description">Amazon sắp có đợt cắt giảm nhân sự lớn nhất lịch sử, với số lao động tương đương 10% nhân viên văn phòng hiện tại.</p>
+                    <div class="news-meta">
+                        <span class="news-date">28/10/2025 08:53</span>
+                        <a href="https://vnexpress.net/amazon-co-the-sa-thai-30-000-nhan-vien-4956561.html" target="_blank" class="read-more">Đọc thêm</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://i1-kinhdoanh.vnecdn.net/2025/10/28/goldbarreuters-1761610498-3497-1761610506.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=6uGqrCW9pXL6fJoGkyoNKg" alt="Gold Wall Street" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Giá vàng thế giới lao dốc, Wall Street tăng mạnh</h2>
+                    <p class="news-description">Mỗi ounce vàng giảm tới 130 USD phiên đầu tuần, trong khi cả ba chỉ số của chứng khoán Mỹ cùng lên mức cao kỷ lục mới.</p>
+                    <div class="news-meta">
+                        <span class="news-date">28/10/2025 07:26</span>
+                        <a href="https://vnexpress.net/gia-vang-the-gioi-lao-doc-wall-street-tang-manh-4956559.html" target="_blank" class="read-more">Đọc thêm</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://i1-kinhdoanh.vnecdn.net/2025/10/27/silver-economy-1761551899-1761-6019-6156-1761552184.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=DY2Eop1aSsS7EWruCxoRTg" alt="China Silver Economy" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Cơ hội tăng trưởng của Trung Quốc từ 'kinh tế bạc'</h2>
+                    <p class="news-description">Bà Wang Shuyun (78 tuổi) gần đây bỏ ra 8.000 nhân dân tệ (1.100 USD) cho một khóa dinh dưỡng hỗ trợ giảm cân và giảm đường huyết.</p>
+                    <div class="news-meta">
+                        <span class="news-date">28/10/2025 00:05</span>
+                        <a href="https://vnexpress.net/co-hoi-tang-truong-cua-trung-quoc-tu-kinh-te-bac-4956341.html" target="_blank" class="read-more">Đọc thêm</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://i1-kinhdoanh.vnecdn.net/2025/10/27/singapore-airshow-1-1761557506-7780-1761557536.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ekh_F4dGK8goivCioWCo7A" alt="C919 Aircraft" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Thương chiến cản đường cất cánh của máy bay 'made in China'</h2>
+                    <p class="news-description">Máy bay C919 của Trung Quốc đang đối mặt với bầu trời đầy biến động giữa căng thẳng thương mại Mỹ - Trung, khả năng lỡ hẹn mục tiêu giao hàng.</p>
+                    <div class="news-meta">
+                        <span class="news-date">28/10/2025 00:03</span>
+                        <a href="https://vnexpress.net/thuong-chien-can-duong-cat-canh-cua-may-bay-made-in-china-4956399.html" target="_blank" class="read-more">Đọc thêm</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://i1-kinhdoanh.vnecdn.net/2025/10/27/us-capitol-1761569361-17615698-5867-1751-1761570137.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=McQ_exP-JsYsKf7d33hbSw" alt="US Government Shutdown" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Kinh tế Mỹ bắt đầu chịu hậu quả khi chính phủ đóng cửa</h2>
+                    <p class="news-description">Doanh nghiệp không thể vay vốn hay nhận tiền hoàn thuế, trong khi nhà hàng, bể bơi vắng vẻ vì thu nhập của khách sụt giảm khi chính phủ Mỹ đóng cửa.</p>
+                    <div class="news-meta">
+                        <span class="news-date">28/10/2025 00:02</span>
+                        <a href="https://vnexpress.net/kinh-te-my-bat-dau-chiu-hau-qua-khi-chinh-phu-dong-cua-4956374.html" target="_blank" class="read-more">Đọc thêm</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://i1-kinhdoanh.vnecdn.net/2025/10/27/img4122176155406317110711815-1-3101-6545-1761571496.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=2d0woJ6j4tGxEIHQQn3ICg" alt="Nuclear Plant" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Việt - Nga sớm ký thoả thuận để khởi công nhà máy điện hạt nhân</h2>
+                    <p class="news-description">Việt Nam - Nga nhất trí đẩy nhanh trao đổi, đàm phán, sớm ký kết các thỏa thuận cần thiết để có thể khởi công nhà máy điện hạt nhân Ninh Thuận theo kế hoạch.</p>
+                    <div class="news-meta">
+                        <span class="news-date">27/10/2025 22:05</span>
+                        <a href="https://vnexpress.net/viet-nga-som-ky-thoa-thuan-de-khoi-cong-nha-may-dien-hat-nhan-4956487.html" target="_blank" class="read-more">Đọc thêm</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://i1-kinhdoanh.vnecdn.net/2025/10/27/unitedairlines-1761562877-7017-1761562894.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=VWg67LTg1b67abm5wjiRnQ" alt="United Airlines" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Hãng bay hàng đầu Mỹ trở lại Việt Nam</h2>
+                    <p class="news-description">United Airlines, một trong 3 hãng lớn nhất Mỹ về quy mô đội bay, vừa khai thác trở lại đường bay đến TP HCM.</p>
+                    <div class="news-meta">
+                        <span class="news-date">27/10/2025 19:01</span>
+                        <a href="https://vnexpress.net/hang-bay-hang-dau-my-tro-lai-viet-nam-4956462.html" target="_blank" class="read-more">Đọc thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
