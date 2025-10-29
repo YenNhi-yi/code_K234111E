@@ -1,0 +1,89 @@
+<html>
+    <head>
+    <title>Home_Nguyen Thi Yen Nhi</title>
+    <link rel="stylesheet" type="text/css" href="../css/mainstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    </head>
+    <body>
+        <div id="menu">
+            <ul class="mainmenu">
+            <li><a href="home.html">Trang chủ</a></li>
+
+            <li>
+                <a href="#">Góc học tập</a>
+                <ul class="submenu hoc">
+                <li><a href="html-js.html">HTML & Javascript</a></li>
+                <li><a href="style.html">Style</a></li>
+                <li><a href="xml-dom.html">XML & DOM</a></li>
+                <li><a href="json.html">JSON</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Tin tức</a>
+                <ul class="submenu tintuc">
+                <li><a href="giaoduc.html">Tin tức giáo dục</a></li>
+                <li><a href="dubao.html">Dự báo</a></li>
+                </ul>
+            </li>
+
+            <li><a href="dangky.html">Đăng ký</a></li>
+            </ul>
+        </div>
+
+        <div class="moving-student">
+            <marquee direction="down" behavior="scroll" loop=-1 scrollamount=10> 
+                <p align="center"> <img src = "../images/front.jpg" width = "500" height = "650"> </p>
+                <p align="center" class="student-name">Nguyễn Thị Yến Nhi</p>
+            </marquee>
+        </div>
+
+        <div class="container">
+            <h1>Giới Thiệu Bản Thân</h1>
+            <div class="flip-card-container">
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="hover-hint">Nhấn để xem thêm thông tin</div>
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="../images/front.jpg" alt="Profile" class="profile-img">
+                            <h2>Nguyễn Thị Yến Nhi</h2>
+                            <h3>K23411409</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="../images/back.jpg" alt="Profile" class="profile-img">
+                            <h2>Thông Tin Liên Hệ</h2>
+                            <p><i class="fas fa-envelope"></i> Email: nhinty1415@gmail.com</p>
+                            <p><i class="fas fa-phone"></i> Điện thoại: 0123 456 789</p>
+                            <p><i class="fas fa-map-marker-alt"></i> K234111E</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info-section">
+                <h2><i class="fas fa-user"></i> Về Tôi</h2>
+                <p>Xin chào! Mình là Nguyễn Thị Yến Nhi.  Mình là sinh viên ngành Công nghệ Thông tin, yêu thích lập trình web và thiết kế giao diện người dùng. Mục tiêu của mình là trở thành một lập trình viên Front-end chuyên nghiệp, luôn tìm tòi và học hỏi những công nghệ mới.</p>
+            </div>
+            <div class="info-section">
+                <h2><i class="fas fa-code"></i> Kỹ Năng</h2>
+                <div class="skills">
+                    <span class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
+                    <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+                    <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                    <span class="skill-tag"><i class="fas fa-paint-brush"></i> Thiết kế</span>
+                    <span class="skill-tag"><i class="fas fa-tasks"></i> Quản lý dự án</span>
+                </div>
+            </div>
+            <div class="info-section">
+                <h2><i class="fas fa-heart"></i> Sở Thích</h2>
+                <p><i class="fas fa-music"></i> Âm nhạc | <i class="fas fa-book"></i> Đọc sách | <i class="fas fa-plane"></i> Du lịch | <i class="fas fa-laptop"></i> Công nghệ | <i class="fas fa-palette"></i> Nghệ thuật</p>
+            </div>
+        </div>   
+        <div class="footer-info">
+            <p>
+                <strong>Đây là bài làm của Nguyễn Thị Yến Nhi</strong>, thực hiện ngày 
+                <strong><span id="currentDate"></span></strong>
+            </p>
+        </div> 
+        <script src="../js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,445 @@
+<html>
+<head>
+    <title>JSON - Nguyen Thi Yen Nhi</title>
+    <link rel="stylesheet" type="text/css" href="../css/mainstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+    <div id="menu">
+        <ul class="mainmenu">
+            <li><a href="home.html">Trang chủ</a></li>
+            <li>
+                <a href="#">Góc học tập</a>
+                <ul class="submenu hoc">
+                    <li><a href="html-js.html">HTML & Javascript</a></li>
+                    <li><a href="style.html">Style</a></li>
+                    <li><a href="xml-dom.html">XML & DOM</a></li>
+                    <li><a href="json.html">JSON</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Tin tức</a>
+                <ul class="submenu tintuc">
+                    <li><a href="giaoduc.html">Tin tức giáo dục</a></li>
+                    <li><a href="dubao.html">Dự báo</a></li>
+                </ul>
+            </li>
+            <li><a href="dangky.html">Đăng ký</a></li>
+        </ul>
+    </div>
+
+    <div class="moving-student">
+        <marquee direction="down" behavior="scroll" loop="-1" scrollamount="10"> 
+            <p align="center"><img src="../images/front.jpg" width="500" height="650"></p>
+            <p align="center" class="student-name">Nguyễn Thị Yến Nhi</p>
+        </marquee>
+    </div>
+
+    <div class="container">
+        <main class="content">
+            <h1><i class="fas fa-brackets-curly"></i> Menu JSON</h1>
+
+            <!-- Giới thiệu JSON -->
+            <div class="content-section">
+                <h2><i class="fas fa-info-circle"></i> JSON LÀ GÌ?</h2>
+                <p>JSON (JavaScript Object Notation) là định dạng dữ liệu nhẹ, dễ đọc và dễ viết cho con người, đồng thời dễ phân tích và tạo ra cho máy tính. JSON được sử dụng rộng rãi trong việc trao đổi dữ liệu giữa client và server.</p>
+                
+                <div class="info-box">
+                    <p style="margin: 0;"><strong><i class="fas fa-check-circle"></i> Đặc điểm của JSON:</strong></p>
+                    <ul style="margin-top: 10px;">
+                        <li>Định dạng văn bản thuần túy (plain text)</li>
+                        <li>Độc lập với ngôn ngữ lập trình</li>
+                        <li>Cú pháp đơn giản, dễ hiểu</li>
+                        <li>Hỗ trợ nhiều kiểu dữ liệu: string, number, boolean, array, object, null</li>
+                        <li>Kích thước nhỏ gọn, truyền tải nhanh</li>
+                    </ul>
+                </div>
+
+                <h3>Cấu trúc cơ bản của JSON:</h3>
+                <div class="code-example">
+                    <span class="comment">// JSON Object</span>
+                    {
+                        <span class="key">"name"</span>: <span class="string">"Phở Bò"</span>,
+                        <span class="key">"price"</span>: <span class="number">50000</span>,
+                        <span class="key">"available"</span>: <span class="boolean">true</span>,
+                        <span class="key">"category"</span>: <span class="string">"Món chính"</span>
+                    }
+
+                    <span class="comment">// JSON Array</span>
+                    [
+                        {<span class="key">"name"</span>: <span class="string">"Phở Bò"</span>, <span class="key">"price"</span>: <span class="number">50000</span>},
+                        {<span class="key">"name"</span>: <span class="string">"Bún Chả"</span>, <span class="key">"price"</span>: <span class="number">45000</span>},
+                        {<span class="key">"name"</span>: <span class="string">"Trà Đá"</span>, <span class="key">"price"</span>: <span class="number">5000</span>}
+                    ]
+                </div>
+
+                <h3>Các kiểu dữ liệu trong JSON:</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Kiểu dữ liệu</th>
+                        <th>Mô tả</th>
+                        <th>Ví dụ</th>
+                    </tr>
+                    <tr>
+                        <td><strong>String</strong></td>
+                        <td>Chuỗi ký tự, phải đặt trong dấu ngoặc kép</td>
+                        <td>"Phở Bò", "Món chính"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Number</strong></td>
+                        <td>Số nguyên hoặc số thực</td>
+                        <td>50000, 3.14, -10</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Boolean</strong></td>
+                        <td>Giá trị đúng/sai</td>
+                        <td>true, false</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Array</strong></td>
+                        <td>Danh sách các giá trị</td>
+                        <td>[1, 2, 3], ["a", "b"]</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Object</strong></td>
+                        <td>Tập hợp các cặp key-value</td>
+                        <td>{"name": "Phở", "price": 50000}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Null</strong></td>
+                        <td>Giá trị rỗng</td>
+                        <td>null</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- So sánh JSON vs XML -->
+            <div class="content-section">
+                <h2><i class="fas fa-balance-scale"></i> SO SÁNH JSON VÀ XML</h2>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-file-code"></i> JSON</h4>
+                        <p><strong>Ưu điểm:</strong></p>
+                        <ul style="margin-top: 10px; color: #555;">
+                            <li>Cú pháp ngắn gọn, dễ đọc</li>
+                            <li>Parse nhanh hơn</li>
+                            <li>Kích thước file nhỏ hơn</li>
+                            <li>Hỗ trợ array tự nhiên</li>
+                            <li>Phổ biến trong Web API</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-code"></i> XML</h4>
+                        <p><strong>Ưu điểm:</strong></p>
+                        <ul style="margin-top: 10px; color: #555;">
+                            <li>Hỗ trợ metadata và attributes</li>
+                            <li>Có namespace</li>
+                            <li>Validate schema tốt hơn</li>
+                            <li>Hỗ trợ comments</li>
+                            <li>Phù hợp với tài liệu phức tạp</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Ví dụ so sánh cùng một dữ liệu:</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                    <div>
+                        <h4 style="color: #954C95; margin-bottom: 10px;">JSON Format:</h4>
+                        <div class="code-example">
+                            {
+                            <span class="key">"menu"</span>: [
+                                {
+                                <span class="key">"name"</span>: <span class="string">"Phở Bò"</span>,
+                                <span class="key">"price"</span>: <span class="number">50000</span>,
+                                <span class="key">"category"</span>: <span class="string">"Món chính"</span>
+                                }
+                            ]
+                            }
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="color: #954C95; margin-bottom: 10px;">XML Format:</h4>
+                        <div class="code-example">
+                            &lt;menu&gt;
+                            &lt;item&gt;
+                                &lt;name&gt;Phở Bò&lt;/name&gt;
+                                &lt;price&gt;50000&lt;/price&gt;
+                                &lt;category&gt;Món chính&lt;/category&gt;
+                            &lt;/item&gt;
+                            &lt;/menu&gt;
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cách đọc dữ liệu JSON -->
+            <div class="content-section">
+                <h2><i class="fas fa-book-reader"></i> CÁCH ĐỌC DANH SÁCH DỮ LIỆU TRONG JSON</h2>
+                
+                <h3>1. Parse JSON String:</h3>
+                <div class="code-example">
+                    <span class="comment">// JSON string</span>
+                    <span class="keyword">let</span> jsonString = <span class="string">'{"name":"Phở Bò","price":50000}'</span>;
+
+                    <span class="comment">// Parse JSON string thành JavaScript object</span>
+                    <span class="keyword">let</span> obj = JSON.parse(jsonString);
+
+                    <span class="comment">// Truy cập dữ liệu</span>
+                    console.log(obj.name);  <span class="comment">// "Phở Bò"</span>
+                    console.log(obj.price); <span class="comment">// 50000</span>
+                </div>
+
+                <h3>2. Đọc JSON Array:</h3>
+                <div class="code-example">
+                    <span class="comment">// JSON array string</span>
+                    <span class="keyword">let</span> jsonArrayString = <span class="string">'[{"name":"Phở Bò","price":50000},{"name":"Bún Chả","price":45000}]'</span>;
+
+                    <span class="comment">// Parse JSON array</span>
+                    <span class="keyword">let</span> menuArray = JSON.parse(jsonArrayString);
+
+                    <span class="comment">// Duyệt qua từng phần tử</span>
+                    menuArray.forEach(<span class="keyword">function</span>(item, index) {
+                        console.log(<span class="string">"Món "</span> + (index + <span class="number">1</span>) + <span class="string">": "</span> + item.name + <span class="string">" - "</span> + item.price + <span class="string">" VNĐ"</span>);
+                    });
+                </div>
+
+                <h3>3. Đọc JSON Object lồng nhau:</h3>
+                <div class="code-example">
+                    <span class="keyword">let</span> complexJson = {
+                        <span class="key">"restaurant"</span>: {
+                            <span class="key">"name"</span>: <span class="string">"Nhà Hàng Việt"</span>,
+                            <span class="key">"menu"</span>: [
+                                {<span class="key">"name"</span>: <span class="string">"Phở Bò"</span>, <span class="key">"price"</span>: <span class="number">50000</span>},
+                                {<span class="key">"name"</span>: <span class="string">"Bún Chả"</span>, <span class="key">"price"</span>: <span class="number">45000</span>}
+                            ]
+                        }
+                    };
+
+                    <span class="comment">// Truy cập dữ liệu lồng nhau</span>
+                    console.log(complexJson.restaurant.name);              <span class="comment">// "Nhà Hàng Việt"</span>
+                    console.log(complexJson.restaurant.menu[<span class="number">0</span>].name);       <span class="comment">// "Phở Bò"</span>
+                    console.log(complexJson.restaurant.menu[<span class="number">0</span>].price);      <span class="comment">// 50000</span>
+                </div>
+
+                <h3>4. Chuyển đổi Object thành JSON String:</h3>
+                <div class="code-example">
+                    <span class="comment">// JavaScript object</span>
+                    <span class="keyword">let</span> menuItem = {
+                        name: <span class="string">"Phở Bò"</span>,
+                        price: <span class="number">50000</span>,
+                        category: <span class="string">"Món chính"</span>
+                    };
+
+                    <span class="comment">// Chuyển thành JSON string</span>
+                    <span class="keyword">let</span> jsonString = JSON.stringify(menuItem);
+                    console.log(jsonString);
+                    <span class="comment">// {"name":"Phở Bò","price":50000,"category":"Món chính"}</span>
+
+                    <span class="comment">// JSON string có format đẹp</span>
+                    <span class="keyword">let</span> prettyJson = JSON.stringify(menuItem, <span class="boolean">null</span>, <span class="number">2</span>);
+                </div>
+            </div>
+
+            <!-- Demo thực hành -->
+            <div class="content-section">
+                <h2><i class="fas fa-laptop-code"></i> THỰC HÀNH: TẠO TABLE TỪ JSON</h2>
+                
+                <div class="warning-box">
+                    <p style="margin: 0;"><strong><i class="fas fa-exclamation-triangle"></i> Lưu ý:</strong> Nhập cấu trúc JSON đúng định dạng. JSON phải là một array chứa các object với các key: name, price, category</p>
+                </div>
+
+                <div class="demo-box">
+                    <h4><i class="fas fa-keyboard"></i> Nhập JSON Menu của bạn:</h4>
+                    <textarea id="jsonInput" class="json-menu-input" placeholder='Nhập JSON ở đây...
+                        Ví dụ:
+                        [
+                        {
+                            "name": "Phở Bò",
+                            "price": 50000,
+                            "category": "Món chính"
+                        },
+                        {
+                            "name": "Bún Chả",
+                            "price": 45000,
+                            "category": "Món chính"
+                        },
+                        {
+                            "name": "Trà Đá",
+                            "price": 5000,
+                            "category": "Đồ uống"
+                        }
+                        ]'></textarea>
+                    
+                    <button class="btn-create" onclick="createTableFromJSON()">
+                        <i class="fas fa-table"></i> Tạo Table
+                    </button>
+                    <button class="btn-create" onclick="showJSONStructure()">
+                        <i class="fas fa-eye"></i> Xem Cấu Trúc
+                    </button>
+
+                    <div id="jsonStructure" class="json-output" style="display: none;">
+                        <h4><i class="fas fa-sitemap"></i> Cấu trúc JSON đã Parse:</h4>
+                        <div id="structureDisplay" class="json-display"></div>
+                    </div>
+
+                    <div id="tableOutput" class="table-container" style="display: none;">
+                        <h4 style="color: #954C95; margin-bottom: 15px;">
+                            <i class="fas fa-utensils"></i> Menu Table
+                        </h4>
+                        <table id="menuTable" class="json-table">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên món</th>
+                                    <th>Giá (VNĐ)</th>
+                                    <th>Danh mục</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phương thức JSON trong JavaScript -->
+            <div class="content-section">
+                <h2><i class="fas fa-tools"></i> CÁC PHƯƠNG THỨC JSON TRONG JAVASCRIPT</h2>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-arrow-right"></i> JSON.parse()</h4>
+                        <p>Chuyển đổi JSON string thành JavaScript object hoặc array. Sử dụng khi nhận dữ liệu từ server hoặc đọc từ localStorage.</p>
+                        <div class="code-example" style="margin-top: 10px;">
+                            <span class="keyword">let</span> obj = JSON.parse(<span class="string">'{"name":"Phở"}'</span>);
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-arrow-left"></i> JSON.stringify()</h4>
+                        <p>Chuyển đổi JavaScript object hoặc array thành JSON string. Sử dụng khi gửi dữ liệu lên server hoặc lưu vào localStorage.</p>
+                        <div class="code-example" style="margin-top: 10px;">
+                            <span class="keyword">let</span> str = JSON.stringify({name:<span class="string">"Phở"</span>});
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Xử lý lỗi khi Parse JSON:</h3>
+                <div class="code-example">
+                    <span class="keyword">try</span> {
+                        <span class="keyword">let</span> jsonString = document.getElementById(<span class="string">"jsonInput"</span>).value;
+                        <span class="keyword">let</span> data = JSON.parse(jsonString);
+                        
+                        <span class="comment">// Kiểm tra dữ liệu</span>
+                        <span class="keyword">if</span> (!Array.isArray(data)) {
+                            <span class="keyword">throw new</span> Error(<span class="string">"JSON phải là một array"</span>);
+                        }
+                        
+                        <span class="comment">// Xử lý dữ liệu...</span>
+                        
+                    } <span class="keyword">catch</span> (error) {
+                        alert(<span class="string">"Lỗi: "</span> + error.message);
+                    }
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div class="footer-info">
+        <p>
+            <strong>Đây là bài làm của Nguyễn Thị Yến Nhi</strong>, thực hiện ngày 
+            <strong><span id="currentDate"></span></strong>
+        </p>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Hiển thị ngày hiện tại
+        document.getElementById("currentDate").textContent = new Date().toLocaleDateString('vi-VN');
+
+        function createTableFromJSON() {
+            try {
+                let jsonString = document.getElementById("jsonInput").value.trim();
+                
+                if (!jsonString) {
+                    alert("Vui lòng nhập JSON!");
+                    return;
+                }
+
+                // Parse JSON
+                let data = JSON.parse(jsonString);
+
+                // Kiểm tra dữ liệu phải là array
+                if (!Array.isArray(data)) {
+                    alert("JSON phải là một array!");
+                    return;
+                }
+
+                if (data.length === 0) {
+                    alert("Array JSON rỗng!");
+                    return;
+                }
+
+                let tableBody = document.getElementById("tableBody");
+                tableBody.innerHTML = "";
+
+                // Tạo table từ JSON array
+                for (let i = 0; i < data.length; i++) {
+                    let item = data[i];
+
+                    if (!item.name || !item.price || !item.category) {
+                        alert("Thiếu thuộc tính bắt buộc (name, price, category) trong item thứ " + (i + 1));
+                        continue;
+                    }
+
+                    let row = tableBody.insertRow();
+                    row.insertCell(0).textContent = i + 1;
+                    row.insertCell(1).textContent = item.name;
+                    row.insertCell(2).textContent = parseInt(item.price).toLocaleString('vi-VN');
+                    row.insertCell(3).textContent = item.category;
+                }
+
+                document.getElementById("tableOutput").style.display = "block";
+                
+                // Scroll đến table
+                document.getElementById("tableOutput").scrollIntoView({ 
+                    behavior: "smooth", 
+                    block: "nearest" 
+                });
+
+            } catch (error) {
+                alert("Lỗi cú pháp JSON! Vui lòng kiểm tra lại.\n\nChi tiết: " + error.message);
+            }
+        }
+
+        function showJSONStructure() {
+            try {
+                let jsonString = document.getElementById("jsonInput").value.trim();
+                
+                if (!jsonString) {
+                    alert("Vui lòng nhập JSON!");
+                    return;
+                }
+
+                // Parse JSON
+                let data = JSON.parse(jsonString);
+
+                // Hiển thị cấu trúc JSON đẹp
+                let prettyJson = JSON.stringify(data, null, 2);
+                document.getElementById("structureDisplay").textContent = prettyJson;
+                document.getElementById("jsonStructure").style.display = "block";
+
+                // Scroll đến phần hiển thị cấu trúc
+                document.getElementById("jsonStructure").scrollIntoView({ 
+                    behavior: "smooth", 
+                    block: "nearest" 
+                });
+
+            } catch (error) {
+                alert("Lỗi cú pháp JSON! Vui lòng kiểm tra lại.\n\nChi tiết: " + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

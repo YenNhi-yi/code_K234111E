@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style - Nguyen Thi Yen Nhi</title>
+    <link rel="stylesheet" type="text/css" href="../css/mainstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <style>
+        .content-section {
+            background: linear-gradient(135deg, #e8c1d1 0%, #f0d2de 100%);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(149, 76, 149, 0.2);
+            margin-bottom: 30px;
+            border: 2px solid #d379a7;
+        }
+
+        .content-section h2 {
+            color: #954C95;
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-bottom: 3px solid #954C95;
+            padding-bottom: 10px;
+        }
+
+        .content-section h3 {
+            color: #d379a7;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .content-section p {
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .style-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .style-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #954C95;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .style-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(149, 76, 149, 0.3);
+        }
+
+        .style-card h4 {
+            color: #954C95;
+            margin-bottom: 15px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .style-card .definition {
+            background: #f8f0f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #d379a7;
+        }
+
+        .style-card .definition p {
+            margin: 0;
+            color: #555;
+            font-style: italic;
+        }
+
+        .code-example {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .code-example .keyword {
+            color: #ff79c6;
+        }
+
+        .code-example .property {
+            color: #8be9fd;
+        }
+
+        .code-example .value {
+            color: #f1fa8c;
+        }
+
+        .code-example .comment {
+            color: #6272a4;
+            font-style: italic;
+        }
+
+        .code-example .selector {
+            color: #50fa7b;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .pros, .cons {
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .pros {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+
+        .cons {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+
+        .pros h5, .cons h5 {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .pros h5 {
+            color: #28a745;
+        }
+
+        .cons h5 {
+            color: #dc3545;
+        }
+
+        .pros ul, .cons ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .pros li, .cons li {
+            padding: 5px 0;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .pros li:before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .cons li:before {
+            content: "✗ ";
+            color: #dc3545;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .demo-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px dashed #d379a7;
+        }
+
+        .demo-box h4 {
+            color: #954C95;
+            margin-bottom: 15px;
+        }
+
+        /* Demo styles */
+        .inline-demo {
+            background: linear-gradient(45deg, #954C95, #d379a7);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .internal-demo {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .external-demo {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 25px 0;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: #954C95;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #f0d2de;
+        }
+
+        .comparison-table tr:hover {
+            background: #f8f0f5;
+        }
+
+        @media (max-width: 768px) {
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <ul class="mainmenu">
+            <li><a href="home.html">Trang chủ</a></li>
+            <li>
+                <a href="#">Góc học tập</a>
+                <ul class="submenu hoc">
+                    <li><a href="html-js.html">HTML & Javascript</a></li>
+                    <li><a href="style.html">Style</a></li>
+                    <li><a href="xml-dom.html">XML & DOM</a></li>
+                    <li><a href="json.html">JSON</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Tin tức</a>
+                <ul class="submenu tintuc">
+                    <li><a href="giaoduc.html">Tin tức giáo dục</a></li>
+                    <li><a href="dubao.html">Dự báo</a></li>
+                </ul>
+            </li>
+            <li><a href="dangky.html">Đăng ký</a></li>
+        </ul>
+    </div>
+
+    <div class="moving-student">
+        <marquee direction="down" behavior="scroll" loop="-1" scrollamount="10"> 
+            <p align="center"><img src="../images/front.jpg" width="500" height="650"></p>
+            <p align="center" class="student-name">Nguyễn Thị Yến Nhi</p>
+        </marquee>
+    </div>
+
+    <div class="container">
+        <main class="content">
+            <h1><i class="fas fa-palette"></i> CSS Style</h1>
+
+            <!-- Giới thiệu -->
+            <div class="content-section">
+                <h2><i class="fas fa-info-circle"></i> CƠ PHẠP VỀ CSS STYLE</h2>
+                <p>CSS (Cascading Style Sheets) là ngôn ngữ được sử dụng để định dạng và trang trí giao diện cho các trang web HTML. CSS giúp kiểm soát màu sắc, font chữ, khoảng cách, bố cục và nhiều thuộc tính khác của các phần tử HTML.</p>
+                <p>CSS có nhiều cách áp dụng vào trang web, mỗi cách có ý nghĩa và ứng dụng riêng biệt. Việc lựa chọn phương pháp phù hợp sẽ giúp code dễ bảo trì và tối ưu hơn.</p>
+            </div>
+
+            <!-- 3 loại Style -->
+            <div class="content-section">
+                <h2><i class="fas fa-code"></i> CÁC LOẠI STYLE VÀ CÁCH SỬ DỤNG</h2>
+
+                <div class="style-types">
+                    <!-- Inline Style -->
+                    <div class="style-card">
+                        <h4><i class="fas fa-tag"></i> 1. Inline Style</h4>
+                        <div class="definition">
+                            <p><strong>Định nghĩa:</strong> Inline Style là cách viết CSS trực tiếp trong thuộc tính style của thẻ HTML.</p>
+                        </div>
+
+                        <h5 style="color: #954C95; margin-top: 15px;">Cú pháp:</h5>
+                        <div class="code-example">
+<span class="keyword">&lt;thẻ</span> <span class="property">style</span>=<span class="value">"property: value; property: value;"</span><span class="keyword">&gt;</span>
+    Nội dung
+<span class="keyword">&lt;/thẻ&gt;</span>
+                        </div>
+
+                        <h5 style="color: #954C95; margin-top: 15px;">Ví dụ:</h5>
+                        <div class="code-example">
+<span class="keyword">&lt;p</span> <span class="property">style</span>=<span class="value">"color: red; font-size: 20px;"</span><span class="keyword">&gt;</span>
+    Đây là đoạn văn có màu đỏ
+<span class="keyword">&lt;/p&gt;</span>
+
+<span class="keyword">&lt;div</span> <span class="property">style</span>=<span class="value">"background: blue; padding: 10px;"</span><span class="keyword">&gt;</span>
+    Nội dung
+<span class="keyword">&lt;/div&gt;</span>
+                        </div>
+
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <h5><i class="fas fa-check-circle"></i> Ưu điểm</h5>
+                                <ul>
+                                    <li>Áp dụng nhanh chóng</li>
+                                    <li>Ưu tiên cao nhất</li>
+                                    <li>Phù hợp cho thay đổi nhỏ</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <h5><i class="fas fa-times-circle"></i> Nhược điểm</h5>
+                                <ul>
+                                    <li>Khó bảo trì</li>
+                                    <li>Không tái sử dụng</li>
+                                    <li>Code dài, rối</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="demo-box">
+                            <h4>Demo Inline Style:</h4>
+                            <div class="inline-demo">
+                                Đây là ví dụ về Inline Style
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Internal Style -->
+                    <div class="style-card">
+                        <h4><i class="fas fa-file-code"></i> 2. Internal Style</h4>
+                        <div class="definition">
+                            <p><strong>Định nghĩa:</strong> Internal Style là cách viết CSS trong thẻ &lt;style&gt; ở phần &lt;head&gt; của file HTML.</p>
+                        </div>
+
+                        <h5 style="color: #954C95; margin-top: 15px;">Cú pháp:</h5>
+                        <div class="code-example">
+<span class="keyword">&lt;head&gt;</span>
+    <span class="keyword">&lt;style&gt;</span>
+        <span class="selector">selector</span> {
+            <span class="property">property</span>: <span class="value">value</span>;
+            <span class="property">property</span>: <span class="value">value</span>;
+        }
+    <span class="keyword">&lt;/style&gt;</span>
+<span class="keyword">&lt;/head&gt;</span>
+                        </div>
+
+                        <h5 style="color: #954C95; margin-top: 15px;">Ví dụ:</h5>
+                        <div class="code-example">
+<span class="keyword">&lt;head&gt;</span>
+    <span class="keyword">&lt;style&gt;</span>
+        <span class="selector">h1</span> {
+            <span class="property">color</span>: <span class="value">blue</span>;
+            <span class="property">text-align</span>: <span class="value">center</span>;
+        }
+        
+        <span class="selector">.container</span> {
+            <span class="property">background</span>: <span class="value">#f0f0f0</span>;
+            <span class="property">padding</span>: <span class="value">20px</span>;
+        }
+    <span class="keyword">&lt;/style&gt;</span>
+<span class="keyword">&lt;/head&gt;</span>
+                        </div>
+
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <h5><i class="fas fa-check-circle"></i> Ưu điểm</h5>
+                                <ul>
+                                    <li>Áp dụng cho toàn trang</li>
+                                    <li>Dễ quản lý hơn inline</li>
+                                    <li>Phù hợp trang đơn</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <h5><i class="fas fa-times-circle"></i> Nhược điểm</h5>
+                                <ul>
+                                    <li>Không dùng lại được</li>
+                                    <li>Tăng kích thước HTML</li>
+                                    <li>Khó bảo trì nhiều trang</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="demo-box">
+                            <h4>Demo Internal Style:</h4>
+                            <div class="internal-demo">
+                                Đây là ví dụ về Internal Style
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- External Style -->
+                    <div class="style-card">
+                        <h4><i class="fas fa-link"></i> 3. External Style</h4>
+                        <div class="definition">
+                            <p><strong>Định nghĩa:</strong> External Style là cách viết CSS trong file riêng (.css) và liên kết vào HTML thông qua thẻ &lt;link&gt;.</p>
+                        </div>
+
+                        <h5 style="color: #954C95; margin-top: 15px;">Cú pháp:</h5>
+                        <div class="code-example">
+<span class="comment">&lt;!-- Trong file HTML --&gt;</span>
+<span class="keyword">&lt;head&gt;</span>
+    <span class="keyword">&lt;link</span> <span class="property">rel</span>=<span class="value">"stylesheet"</span> <span class="property">href</span>=<span class="value">"style.css"</span><span class="keyword">&gt;</span>
+<span class="keyword">&lt;/head&gt;</span>
+
+<span class="comment">/* Trong file style.css */</span>
+<span class="selector">selector</span> {
+    <span class="property">property</span>: <span class="value">value</span>;
+}
+                        </div>
+
+                        <h5 style="color: #954C95; margin-top: 15px;">Ví dụ:</h5>
+                        <div class="code-example">
+<span class="comment">&lt;!-- HTML --&gt;</span>
+<span class="keyword">&lt;head&gt;</span>
+    <span class="keyword">&lt;link</span> <span class="property">rel</span>=<span class="value">"stylesheet"</span> <span class="property">href</span>=<span class="value">"mainstyle.css"</span><span class="keyword">&gt;</span>
+<span class="keyword">&lt;/head&gt;</span>
+
+<span class="comment">/* File mainstyle.css */</span>
+<span class="selector">body</span> {
+    <span class="property">font-family</span>: <span class="value">Arial, sans-serif</span>;
+    <span class="property">background</span>: <span class="value">#f0d2de</span>;
+}
+
+<span class="selector">.button</span> {
+    <span class="property">background</span>: <span class="value">#954C95</span>;
+    <span class="property">color</span>: <span class="value">white</span>;
+    <span class="property">padding</span>: <span class="value">10px 20px</span>;
+}
+                        </div>
+
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <h5><i class="fas fa-check-circle"></i> Ưu điểm</h5>
+                                <ul>
+                                    <li>Tái sử dụng nhiều trang</li>
+                                    <li>Dễ bảo trì, quản lý</li>
+                                    <li>Giảm kích thước HTML</li>
+                                    <li>Cache được</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <h5><i class="fas fa-times-circle"></i> Nhược điểm</h5>
+                                <ul>
+                                    <li>Cần request thêm file</li>
+                                    <li>Phải quản lý nhiều file</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="demo-box">
+                            <h4>Demo External Style:</h4>
+                            <div class="external-demo">
+                                Đây là ví dụ về External Style
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- So sánh -->
+            <div class="content-section">
+                <h2><i class="fas fa-balance-scale"></i> SO SÁNH CÁC LOẠI STYLE</h2>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tiêu chí</th>
+                                <th>Inline Style</th>
+                                <th>Internal Style</th>
+                                <th>External Style</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Vị trí</strong></td>
+                                <td>Trong thuộc tính style</td>
+                                <td>Trong thẻ &lt;style&gt;</td>
+                                <td>File .css riêng</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Phạm vi</strong></td>
+                                <td>Chỉ 1 phần tử</td>
+                                <td>Toàn bộ 1 trang</td>
+                                <td>Nhiều trang</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Độ ưu tiên</strong></td>
+                                <td>Cao nhất</td>
+                                <td>Trung bình</td>
+                                <td>Thấp nhất</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bảo trì</strong></td>
+                                <td>Khó</td>
+                                <td>Trung bình</td>
+                                <td>Dễ</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tái sử dụng</strong></td>
+                                <td>Không</td>
+                                <td>Trong 1 trang</td>
+                                <td>Toàn website</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hiệu suất</strong></td>
+                                <td>Tốt (ít request)</td>
+                                <td>Tốt (ít request)</td>
+                                <td>Rất tốt (cache được)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ứng dụng</strong></td>
+                                <td>Thay đổi nhanh, nhỏ</td>
+                                <td>Trang đơn, demo</td>
+                                <td>Website chuyên nghiệp</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Khuyến nghị -->
+            <div class="content-section">
+                <h2><i class="fas fa-lightbulb"></i> KHUYẾN NGHỊ SỬ DỤNG</h2>
+                <div class="html-structure" style="background: white; padding: 25px; border-radius: 10px; border-left: 4px solid #954C95;">
+                    <h3 style="color: #954C95; margin-top: 0;">Nên sử dụng:</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 10px 0; border-bottom: 1px solid #f0d2de;">
+                            <strong style="color: #28a745;">✓ External Style:</strong> Cho hầu hết các dự án web, đặc biệt là website có nhiều trang
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid #f0d2de;">
+                            <strong style="color: #28a745;">✓ Internal Style:</strong> Cho trang đơn, landing page, hoặc khi test nhanh
+                        </li>
+                        <li style="padding: 10px 0;">
+                            <strong style="color: #ffc107;">⚠ Inline Style:</strong> Chỉ khi cần override style nhanh hoặc style động bằng JavaScript
+                        </li>
+                    </ul>
+
+                    <h3 style="color: #954C95; margin-top: 25px;">Lời khuyên:</h3>
+                    <p style="margin: 0; line-height: 1.8; color: #555;">
+                        Trong thực tế phát triển web chuyên nghiệp, <strong>External Style</strong> là lựa chọn tốt nhất vì dễ bảo trì, 
+                        có thể tái sử dụng và tối ưu hiệu suất. Bạn nên tổ chức CSS thành các file riêng biệt theo chức năng 
+                        (ví dụ: layout.css, components.css, utilities.css) để dễ quản lý hơn.
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="footer-info">
+        <p>
+            <strong>Đây là bài làm của Nguyễn Thị Yến Nhi</strong>, thực hiện ngày 
+            <strong><span id="currentDate"></span></strong>
+        </p>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

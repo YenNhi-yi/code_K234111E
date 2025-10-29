@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML & DOM - Nguyen Thi Yen Nhi</title>
+    <link rel="stylesheet" type="text/css" href="../css/mainstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+    <div id="menu">
+        <ul class="mainmenu">
+            <li><a href="home.html">Trang chủ</a></li>
+            <li>
+                <a href="#">Góc học tập</a>
+                <ul class="submenu hoc">
+                    <li><a href="html-js.html">HTML & Javascript</a></li>
+                    <li><a href="style.html">Style</a></li>
+                    <li><a href="xml-dom.html">XML & DOM</a></li>
+                    <li><a href="json.html">JSON</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Tin tức</a>
+                <ul class="submenu tintuc">
+                    <li><a href="giaoduc.html">Tin tức giáo dục</a></li>
+                    <li><a href="dubao.html">Dự báo</a></li>
+                </ul>
+            </li>
+            <li><a href="dangky.html">Đăng ký</a></li>
+        </ul>
+    </div>
+
+    <div class="moving-student">
+        <marquee direction="down" behavior="scroll" loop="-1" scrollamount="10"> 
+            <p align="center"><img src="../images/front.jpg" width="500" height="650"></p>
+            <p align="center" class="student-name">Nguyễn Thị Yến Nhi</p>
+        </marquee>
+    </div>
+
+    <div class="container">
+        <main class="content">
+            <h1><i class="fas fa-code-branch"></i> Menu XML & DOM</h1>
+
+            <!-- Giới thiệu XML -->
+            <div class="content-section">
+                <h2><i class="fas fa-info-circle"></i> XML LÀ GÌ?</h2>
+                <p>XML (eXtensible Markup Language) là ngôn ngữ đánh dấu mở rộng, được thiết kế để lưu trữ và truyền tải dữ liệu. XML tương tự HTML nhưng linh hoạt hơn vì cho phép tự định nghĩa các thẻ (tag).</p>
+                
+                <div class="info-box">
+                    <p style="margin: 0;"><strong><i class="fas fa-check-circle"></i> Đặc điểm của XML:</strong></p>
+                    <ul style="margin-top: 10px;">
+                        <li>Dữ liệu được cấu trúc dạng cây (tree structure)</li>
+                        <li>Tự mô tả và dễ đọc</li>
+                        <li>Độc lập với nền tảng</li>
+                        <li>Có thể mở rộng tùy ý</li>
+                    </ul>
+                </div>
+
+                <h3>Ví dụ cấu trúc XML Menu:</h3>
+                <div class="code-example">
+                    <span class="comment">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+                    <span class="tag">&lt;menu&gt;</span>
+                        <span class="tag">&lt;item&gt;</span>
+                            <span class="tag">&lt;name&gt;</span>Phở Bò<span class="tag">&lt;/name&gt;</span>
+                            <span class="tag">&lt;price&gt;</span>50000<span class="tag">&lt;/price&gt;</span>
+                            <span class="tag">&lt;category&gt;</span>Món chính<span class="tag">&lt;/category&gt;</span>
+                        <span class="tag">&lt;/item&gt;</span>
+                        <span class="tag">&lt;item&gt;</span>
+                            <span class="tag">&lt;name&gt;</span>Bún Chả<span class="tag">&lt;/name&gt;</span>
+                            <span class="tag">&lt;price&gt;</span>45000<span class="tag">&lt;/price&gt;</span>
+                            <span class="tag">&lt;category&gt;</span>Món chính<span class="tag">&lt;/category&gt;</span>
+                        <span class="tag">&lt;/item&gt;</span>
+                        <span class="tag">&lt;item&gt;</span>
+                            <span class="tag">&lt;name&gt;</span>Trà Đá<span class="tag">&lt;/name&gt;</span>
+                            <span class="tag">&lt;price&gt;</span>5000<span class="tag">&lt;/price&gt;</span>
+                            <span class="tag">&lt;category&gt;</span>Đồ uống<span class="tag">&lt;/category&gt;</span>
+                        <span class="tag">&lt;/item&gt;</span>
+                    <span class="tag">&lt;/menu&gt;</span>
+                </div>
+            </div>
+
+            <!-- Giới thiệu DOM -->
+            <div class="content-section">
+                <h2><i class="fas fa-sitemap"></i> DOM LÀ GÌ?</h2>
+                <p>DOM (Document Object Model) là mô hình đối tượng tài liệu, biểu diễn cấu trúc của tài liệu XML/HTML dưới dạng cây. DOM cho phép JavaScript truy cập và thao tác với các phần tử trong tài liệu.</p>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-search"></i> Truy xuất dữ liệu</h4>
+                        <p>DOM cho phép tìm kiếm và lấy giá trị của các phần tử XML/HTML thông qua các phương thức như getElementById, getElementsByTagName...</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-edit"></i> Chỉnh sửa nội dung</h4>
+                        <p>Có thể thay đổi nội dung, thuộc tính của các phần tử một cách động bằng JavaScript.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-plus-circle"></i> Thêm/Xóa phần tử</h4>
+                        <p>DOM hỗ trợ tạo mới, thêm vào hoặc xóa các phần tử trong cấu trúc tài liệu.</p>
+                    </div>
+                </div>
+
+                <h3>Các phương thức DOM thường dùng:</h3>
+                <div class="code-example">
+                    <span class="comment">// Parse XML string</span>
+                    <span class="keyword">let</span> parser = <span class="keyword">new</span> DOMParser();
+                    <span class="keyword">let</span> xmlDoc = parser.parseFromString(xmlString, <span class="value">"text/xml"</span>);
+
+                    <span class="comment">// Lấy tất cả các phần tử theo tag name</span>
+                    <span class="keyword">let</span> items = xmlDoc.getElementsByTagName(<span class="value">"item"</span>);
+
+                    <span class="comment">// Lấy giá trị của phần tử con</span>
+                    <span class="keyword">let</span> name = items[<span class="value">0</span>].getElementsByTagName(<span class="value">"name"</span>)[<span class="value">0</span>].textContent;
+
+                    <span class="comment">// Tạo bảng HTML từ XML</span>
+                    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="value">0</span>; i < items.length; i++) {
+                        <span class="comment">// Xử lý từng item...</span>
+                    }
+                </div>
+            </div>
+
+            <!-- Demo thực hành -->
+            <div class="content-section">
+                <h2><i class="fas fa-laptop-code"></i> THỰC HÀNH: TẠO TABLE TỪ XML</h2>
+                
+                <div class="warning-box">
+                    <p style="margin: 0;"><strong><i class="fas fa-exclamation-triangle"></i> Lưu ý:</strong> Nhập cấu trúc XML đúng định dạng với các thẻ &lt;menu&gt;, &lt;item&gt;, &lt;name&gt;, &lt;price&gt;, &lt;category&gt;</p>
+                </div>
+
+                <div class="demo-box">
+                    <h4><i class="fas fa-keyboard"></i> Nhập XML Menu của bạn:</h4>
+                    <textarea id="xmlInput" class="xml-menu-input" placeholder="Nhập XML ở đây...
+                        Ví dụ:
+                        <?xml version='1.0' encoding='UTF-8'?>
+                        <menu>
+                            <item>
+                                <name>Phở Bò</name>
+                                <price>50000</price>
+                                <category>Món chính</category>
+                            </item>
+                            <item>
+                                <name>Bún Chả</name>
+                                <price>45000</price>
+                                <category>Món chính</category>
+                            </item>
+                        </menu>"></textarea>
+                    
+                    <button class="btn-create" onclick="createTableFromXML()">
+                        <i class="fas fa-table"></i> Tạo Table
+                    </button>
+
+                    <div id="tableOutput" class="table-container" style="display: none;">
+                        <h4 style="color: #954C95; margin-bottom: 15px;">
+                            <i class="fas fa-utensils"></i> Menu Table
+                        </h4>
+                        <table id="menuTable" class="xml-table">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên món</th>
+                                    <th>Giá (VNĐ)</th>
+                                    <th>Danh mục</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hướng dẫn chi tiết -->
+            <div class="content-section">
+                <h2><i class="fas fa-book"></i> HƯỚNG DẪN SỬ DỤNG DOM VỚI XML</h2>
+                
+                <h3>Bước 1: Parse XML String</h3>
+                <div class="code-example">
+                    <span class="keyword">function</span> createTableFromXML() {
+                        <span class="keyword">let</span> xmlString = document.getElementById(<span class="value">"xmlInput"</span>).value;
+                        
+                        <span class="comment">// Tạo DOMParser object</span>
+                        <span class="keyword">let</span> parser = <span class="keyword">new</span> DOMParser();
+                        
+                        <span class="comment">// Parse XML string thành XML Document</span>
+                        <span class="keyword">let</span> xmlDoc = parser.parseFromString(xmlString, <span class="value">"text/xml"</span>);
+                    }
+                </div>
+
+                <h3>Bước 2: Lấy dữ liệu từ XML</h3>
+                <div class="code-example">
+                    <span class="comment">// Lấy tất cả các thẻ &lt;item&gt;</span>
+                    <span class="keyword">let</span> items = xmlDoc.getElementsByTagName(<span class="value">"item"</span>);
+
+                    <span class="comment">// Duyệt qua từng item</span>
+                    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="value">0</span>; i < items.length; i++) {
+                        <span class="keyword">let</span> name = items[i].getElementsByTagName(<span class="value">"name"</span>)[<span class="value">0</span>].textContent;
+                        <span class="keyword">let</span> price = items[i].getElementsByTagName(<span class="value">"price"</span>)[<span class="value">0</span>].textContent;
+                        <span class="keyword">let</span> category = items[i].getElementsByTagName(<span class="value">"category"</span>)[<span class="value">0</span>].textContent;
+                    }
+                </div>
+
+                <h3>Bước 3: Tạo Table HTML</h3>
+                <div class="code-example">
+                    <span class="comment">// Tạo các hàng trong table</span>
+                    <span class="keyword">let</span> tableBody = document.getElementById(<span class="value">"tableBody"</span>);
+                    tableBody.innerHTML = <span class="value">""</span>;
+
+                    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="value">0</span>; i < items.length; i++) {
+                        <span class="keyword">let</span> row = tableBody.insertRow();
+                        
+                        <span class="comment">// Thêm các cell</span>
+                        row.insertCell(<span class="value">0</span>).textContent = i + <span class="value">1</span>;
+                        row.insertCell(<span class="value">1</span>).textContent = name;
+                        row.insertCell(<span class="value">2</span>).textContent = price.toLocaleString();
+                        row.insertCell(<span class="value">3</span>).textContent = category;
+                    }
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div class="footer-info">
+        <p>
+            <strong>Đây là bài làm của Nguyễn Thị Yến Nhi</strong>, thực hiện ngày 
+            <strong><span id="currentDate"></span></strong>
+        </p>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        function createTableFromXML() {
+            try {
+                let xmlString = document.getElementById("xmlInput").value.trim();
+                
+                if (!xmlString) {
+                    alert("Vui lòng nhập XML!");
+                    return;
+                }
+
+                let parser = new DOMParser();
+                let xmlDoc = parser.parseFromString(xmlString, "text/xml");
+
+                // Kiểm tra lỗi parse
+                let parseError = xmlDoc.getElementsByTagName("parsererror");
+                if (parseError.length > 0) {
+                    alert("Lỗi cú pháp XML! Vui lòng kiểm tra lại.");
+                    return;
+                }
+
+                let items = xmlDoc.getElementsByTagName("item");
+                
+                if (items.length === 0) {
+                    alert("Không tìm thấy thẻ <item> trong XML!");
+                    return;
+                }
+
+                let tableBody = document.getElementById("tableBody");
+                tableBody.innerHTML = "";
+
+                for (let i = 0; i < items.length; i++) {
+                    let nameElement = items[i].getElementsByTagName("name")[0];
+                    let priceElement = items[i].getElementsByTagName("price")[0];
+                    let categoryElement = items[i].getElementsByTagName("category")[0];
+
+                    if (!nameElement || !priceElement || !categoryElement) {
+                        alert("Thiếu thẻ bắt buộc (name, price, category) trong item thứ " + (i + 1));
+                        continue;
+                    }
+
+                    let name = nameElement.textContent;
+                    let price = priceElement.textContent;
+                    let category = categoryElement.textContent;
+
+                    let row = tableBody.insertRow();
+                    row.insertCell(0).textContent = i + 1;
+                    row.insertCell(1).textContent = name;
+                    row.insertCell(2).textContent = parseInt(price).toLocaleString('vi-VN');
+                    row.insertCell(3).textContent = category;
+                }
+
+                document.getElementById("tableOutput").style.display = "block";
+                
+                // Scroll đến table
+                document.getElementById("tableOutput").scrollIntoView({ 
+                    behavior: "smooth", 
+                    block: "nearest" 
+                });
+
+            } catch (error) {
+                alert("Có lỗi xảy ra: " + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & Javascript - Nguyen Thi Yen Nhi</title>
+    <link rel="stylesheet" type="text/css" href="../css/mainstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+    <div id="menu">
+        <ul class="mainmenu">
+            <li><a href="home.html">Trang chủ</a></li>
+            <li>
+                <a href="#">Góc học tập</a>
+                <ul class="submenu hoc">
+                    <li><a href="html-js.html">HTML & Javascript</a></li>
+                    <li><a href="style.html">Style</a></li>
+                    <li><a href="xml-dom.html">XML & DOM</a></li>
+                    <li><a href="json.html">JSON</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Tin tức</a>
+                <ul class="submenu tintuc">
+                    <li><a href="giaoduc.html">Tin tức giáo dục</a></li>
+                    <li><a href="dubao.html">Dự báo</a></li>
+                </ul>
+            </li>
+            <li><a href="dangky.html">Đăng ký</a></li>
+        </ul>
+    </div>
+
+    <div class="moving-student">
+        <marquee direction="down" behavior="scroll" loop="-1" scrollamount="10"> 
+            <p align="center"><img src="../images/front.jpg" width="500" height="650"></p>
+            <p align="center" class="student-name">Nguyễn Thị Yến Nhi</p>
+        </marquee>
+    </div>
+
+    <div class="container">
+        <main class="content">
+            <h1><i class="fas fa-code"></i> HTML & Javascript</h1>
+
+            <!-- Phần HTML -->
+            <div class="content-section">
+                <h2><i class="fab fa-html5"></i> TỔNG QUAN VỀ HTML</h2>
+                
+                <div class="html-structure">
+                    <h3>Cấu trúc tổng quan của một HTML</h3>
+                    <p>HTML (HyperText Markup Language) là ngôn ngữ đánh dấu được sử dụng để tạo và cấu trúc nội dung trên web. Một tài liệu HTML cơ bản bao gồm các thành phần chính sau:</p>
+                    
+                    <div class="code-example">
+                        <span class="keyword">&lt;!DOCTYPE html&gt;</span>
+                        <span class="keyword">&lt;html</span> lang=<span class="string">"vi"</span><span class="keyword">&gt;</span>
+                        <span class="keyword">&lt;head&gt;</span>
+                            <span class="keyword">&lt;meta</span> charset=<span class="string">"UTF-8"</span><span class="keyword">&gt;</span>
+                            <span class="keyword">&lt;title&gt;</span>Tiêu đề trang<span class="keyword">&lt;/title&gt;</span>
+                        <span class="keyword">&lt;/head&gt;</span>
+                        <span class="keyword">&lt;body&gt;</span>
+                            <span class="comment">&lt;!-- Nội dung trang web --&gt;</span>
+                        <span class="keyword">&lt;/body&gt;</span>
+                        <span class="keyword">&lt;/html&gt;</span>
+                    </div>
+                </div>
+
+                <h3>Các thành phần của một thẻ (tag)</h3>
+                <p>Một thẻ HTML bao gồm các thành phần cơ bản:</p>
+                <ul style="list-style: disc; margin-left: 40px; line-height: 2;">
+                    <li><strong>Thẻ mở (Opening tag):</strong> &lt;tên_thẻ&gt; - Đánh dấu điểm bắt đầu</li>
+                    <li><strong>Nội dung (Content):</strong> Nội dung bên trong thẻ</li>
+                    <li><strong>Thẻ đóng (Closing tag):</strong> &lt;/tên_thẻ&gt; - Đánh dấu điểm kết thúc</li>
+                    <li><strong>Thuộc tính (Attributes):</strong> Cung cấp thông tin bổ sung cho thẻ</li>
+                </ul>
+
+                <h3>Các thẻ HTML thường dùng</h3>
+                <div class="tag-list">
+                    <div class="tag-item">
+                        <strong>&lt;h1&gt; - &lt;h6&gt;</strong>
+                        <p>Thẻ tiêu đề, từ cấp 1 đến cấp 6</p>
+                    </div>
+                    <div class="tag-item">
+                        <strong>&lt;p&gt;</strong>
+                        <p>Thẻ đoạn văn bản</p>
+                    </div>
+                    <div class="tag-item">
+                        <strong>&lt;a&gt;</strong>
+                        <p>Thẻ liên kết (hyperlink)</p>
+                    </div>
+                    <div class="tag-item">
+                        <strong>&lt;img&gt;</strong>
+                        <p>Thẻ chèn hình ảnh</p>
+                    </div>
+                    <div class="tag-item">
+                        <strong>&lt;div&gt;</strong>
+                        <p>Thẻ container, nhóm các phần tử</p>
+                    </div>
+                    <div class="tag-item">
+                        <strong>&lt;span&gt;</strong>
+                        <p>Thẻ inline, nhóm văn bản</p>
+                    </div>
+                    <div class="tag-item">
+                        <strong>&lt;ul&gt; / &lt;ol&gt;</strong>
+                        <p>Danh sách không thứ tự / có thứ tự</p>
+                    </div>
+                    <div class="tag-item">
+                        <strong>&lt;li&gt;</strong>
+                        <p>Phần tử trong danh sách</p>
+                    </div>
+                    <div class="tag-item">
+                        <strong>&lt;table&gt;</strong>
+                        <p>Thẻ tạo bảng</p>
+                    </div>
+                    <div class="tag-item">
+                        <strong>&lt;form&gt;</strong>
+                        <p>Thẻ tạo biểu mẫu</p>
+                    </div>
+                    <div class="tag-item">
+                        <strong>&lt;input&gt;</strong>
+                        <p>Thẻ nhập liệu</p>
+                    </div>
+                    <div class="tag-item">
+                        <strong>&lt;button&gt;</strong>
+                        <p>Thẻ nút bấm</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phần Javascript -->
+            <div class="content-section">
+                <h2><i class="fab fa-js-square"></i> JAVASCRIPT</h2>
+                
+                <h3>Ý nghĩa của Javascript</h3>
+                <p>JavaScript là ngôn ngữ lập trình kịch bản (scripting language) được sử dụng để tạo và kiểm soát nội dung động trên trang web. JavaScript giúp trang web trở nên tương tác, phản hồi với người dùng, xử lý sự kiện, thao tác với DOM, và nhiều tính năng khác.</p>
+
+                <h3>Cách sử dụng Internal và External Javascript</h3>
+                <div class="js-types">
+                    <div class="js-type-card">
+                        <h4><i class="fas fa-file-code"></i> Internal Javascript</h4>
+                        <p>Viết mã JavaScript trực tiếp trong file HTML, bên trong thẻ &lt;script&gt;:</p>
+                        <div class="code-example">
+                            <span class="keyword">&lt;script&gt;</span>
+                                <span class="keyword">function</span> <span class="string">sayHello</span>() {
+                                    alert(<span class="string">"Xin chào!"</span>);
+                                }
+                            <span class="keyword">&lt;/script&gt;</span>
+                        </div>
+                        <ul>
+                            <li><strong>Ưu điểm:</strong> Đơn giản, không cần file riêng</li>
+                            <li><strong>Nhược điểm:</strong> Khó bảo trì, không tái sử dụng</li>
+                        </ul>
+                    </div>
+
+                    <div class="js-type-card">
+                        <h4><i class="fas fa-link"></i> External Javascript</h4>
+                        <p>Viết mã JavaScript trong file riêng (.js) và liên kết vào HTML:</p>
+                        <div class="code-example">
+                            <span class="comment">&lt;!-- Trong file HTML --&gt;</span>
+                            <span class="keyword">&lt;script</span> src=<span class="string">"script.js"</span><span class="keyword">&gt;&lt;/script&gt;</span>
+
+                            <span class="comment">/* Trong file script.js */</span>
+                            <span class="keyword">function</span> <span class="string">sayHello</span>() {
+                                alert(<span class="string">"Xin chào!"</span>);
+                            }
+                        </div>
+                        <ul>
+                            <li><strong>Ưu điểm:</strong> Dễ bảo trì, tái sử dụng được</li>
+                            <li><strong>Nhược điểm:</strong> Cần quản lý nhiều file</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Ví dụ thực tế</h3>
+                <div class="html-structure">
+                    <p><strong>Internal Javascript:</strong></p>
+                    <div class="code-example">
+                        <span class="keyword">&lt;button</span> onclick=<span class="string">"showMessage()"</span><span class="keyword">&gt;</span>Click me<span class="keyword">&lt;/button&gt;</span>
+
+                        <span class="keyword">&lt;script&gt;</span>
+                            <span class="keyword">function</span> <span class="string">showMessage</span>() {
+                                <span class="keyword">document</span>.getElementById(<span class="string">'result'</span>).innerHTML = <span class="string">'Bạn đã click!'</span>;
+                            }
+                        <span class="keyword">&lt;/script&gt;</span>
+                                            </div>
+
+                                            <p style="margin-top: 20px;"><strong>External Javascript:</strong></p>
+                                            <div class="code-example">
+                        <span class="comment">&lt;!-- HTML --&gt;</span>
+                        <span class="keyword">&lt;button</span> onclick=<span class="string">"showMessage()"</span><span class="keyword">&gt;</span>Click me<span class="keyword">&lt;/button&gt;</span>
+                        <span class="keyword">&lt;script</span> src=<span class="string">"main.js"</span><span class="keyword">&gt;&lt;/script&gt;</span>
+
+                        <span class="comment">// File main.js</span>
+                        <span class="keyword">function</span> <span class="string">showMessage</span>() {
+                            <span class="keyword">document</span>.getElementById(<span class="string">'result'</span>).innerHTML = <span class="string">'Bạn đã click!'</span>;
+                        }
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="footer-info">
+        <p>
+            <strong>Đây là bài làm của Nguyễn Thị Yến Nhi</strong>, thực hiện ngày 
+            <strong><span id="currentDate"></span></strong>
+        </p>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

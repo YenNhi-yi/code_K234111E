@@ -1,0 +1,186 @@
+<html>
+<head>
+    <title>Dang Ky_Nguyen Thi Yen Nhi</title>
+    <link rel="stylesheet" type="text/css" href="../css/mainstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+    <div id="menu">
+        <ul class="mainmenu">
+            <li><a href="home.html">Trang chủ</a></li>
+
+            <li>
+                <a href="#">Góc học tập</a>
+                <ul class="submenu hoc">
+                <li><a href="html-js.html">HTML & Javascript</a></li>
+                <li><a href="style.html">Style</a></li>
+                <li><a href="xml-dom.html">XML & DOM</a></li>
+                <li><a href="json.html">JSON</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Tin tức</a>
+                <ul class="submenu tintuc">
+                <li><a href="giaoduc.html">Tin tức giáo dục</a></li>
+                <li><a href="dubao.html">Dự báo</a></li>
+                </ul>
+            </li>
+
+            <li><a href="dangky.html">Đăng ký</a></li>
+        </ul>
+    </div>
+
+    <div class="moving-student">
+        <marquee direction="down" behavior="scroll" loop=-1 scrollamount=10> 
+            <p align="center"> <img src = "../images/front.jpg" width = "500" height = "650"> </p>
+            <p align="center" class="student-name">Nguyễn Thị Yến Nhi</p>
+        </marquee>
+    </div>
+
+    <div class="container"> 
+        <main class="content">
+            <div class="registration-form">
+                <h2><i class="fa-solid fa-clipboard-list"></i>Form Đăng Ký</h2>
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <label for="name"></i>Tên:</label>
+                        <input type="text" id="name" name="name" required placeholder="Nhập họ và tên">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">i>Email:</label>
+                        <input type="email" id="email" name="email" required placeholder="Nhập email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content">i>Nội dung:</label>
+                        <textarea id="content" name="content" required placeholder="Nhập nội dung đăng ký"></textarea>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-register"><i class="fa-solid fa-check-circle"></i> Đăng ký</button>
+                        <button type="reset" class="btn btn-reset"><i class="fa-solid fa-rotate-right"></i> Nhập lại</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Bảng hiển thị dữ liệu -->
+            <div class="table-container">
+                <h2><i class="fa-solid fa-table"></i>Danh Sách Đăng Ký</h2>
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên</th>
+                            <th>Email</th>
+                            <th>Nội dung</th>
+                            <th>Thời gian</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <tr>
+                            <td colspan="5" class="no-data"><i class="fa-solid fa-inbox"></i>Chưa có dữ liệu đăng ký</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <div class="footer-info">
+        <p>
+            <strong>Đây là bài làm của Nguyễn Thị Yến Nhi</strong>, thực hiện ngày 
+            <strong><span id="currentDate"></span></strong>
+        </p>
+    </div> 
+    <script src="../js/main.js"></script>
+
+    <script>
+        // Hàm quay về trang chủ
+        function goHome() {
+            alert('Quay về trang chủ');
+            // window.location.href = 'index.html';
+        }
+
+        // Xử lý form đăng ký
+        const form = document.getElementById('registrationForm');
+        const tableBody = document.getElementById('tableBody');
+        let registrationCount = 0;
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Lấy dữ liệu từ form
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const content = document.getElementById('content').value;
+
+            // Tăng số thứ tự
+            registrationCount++;
+
+            // Lấy thời gian hiện tại
+            const now = new Date();
+            const timeString = now.toLocaleString('vi-VN');
+
+            // Xóa dòng "Chưa có dữ liệu" nếu đây là lần đăng ký đầu tiên
+            if (registrationCount === 1) {
+                tableBody.innerHTML = '';
+            }
+
+            // Tạo hàng mới trong bảng bằng DOM
+            const newRow = document.createElement('tr');
+            
+            // Tạo các ô trong hàng
+            const cell1 = document.createElement('td');
+            cell1.textContent = registrationCount;
+            
+            const cell2 = document.createElement('td');
+            cell2.textContent = name;
+            
+            const cell3 = document.createElement('td');
+            cell3.textContent = email;
+            
+            const cell4 = document.createElement('td');
+            cell4.textContent = content;
+            
+            const cell5 = document.createElement('td');
+            cell5.textContent = timeString;
+
+            // Thêm các ô vào hàng
+            newRow.appendChild(cell1);
+            newRow.appendChild(cell2);
+            newRow.appendChild(cell3);
+            newRow.appendChild(cell4);
+            newRow.appendChild(cell5);
+
+            // Thêm hàng vào bảng
+            tableBody.appendChild(newRow);
+
+            // Hiệu ứng highlight cho hàng mới
+            newRow.style.backgroundColor = '#d4edda';
+            setTimeout(() => {
+                newRow.style.backgroundColor = '';
+            }, 2000);
+
+            // Reset form
+            form.reset();
+
+            // Cuộn xuống bảng
+            document.querySelector('.table-container').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+        });
+
+        // Xử lý nút Nhập lại
+        form.addEventListener('reset', function() {
+            setTimeout(() => {
+                document.getElementById('name').focus();
+            }, 100);
+        });
+    </script>
+</body>
+</html>

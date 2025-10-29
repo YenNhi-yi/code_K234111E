@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu Bản Thân_Nguyễn Thị Yến Nhi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <style>
+        * 
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body 
+        {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #e8c1d1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .marquee-container 
+        {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .marquee 
+        {
+            display: flex;
+            animation: scroll 15s linear infinite;
+        }
+
+        .marquee-text 
+        {
+            font-size: 24px;
+            font-weight: bold;
+            color: #954C95;
+            white-space: nowrap;
+            padding: 0 50px;
+        }
+
+        .marquee-text i 
+        {
+            margin: 0 10px;
+        }
+
+        @keyframes scroll 
+        {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .container 
+        {
+            background: rgb(252, 249, 250);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 
+        {
+            text-align: center;
+            color: #954C95;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .flip-card-container 
+        {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .flip-card 
+        {
+            background-color: transparent;
+            width: 300px;
+            height: 400px;
+            perspective: 1000px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .hover-hint 
+        {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(149, 76, 149, 0.9);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 14px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        .flip-card:hover .hover-hint 
+        {
+            opacity: 1;
+        }
+
+        .flip-card-inner 
+        {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner 
+        {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back 
+        {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-card-front 
+        {
+            background: #d379a7;
+            color: white;
+        }
+
+        .flip-card-back 
+        {
+            background: #e8c1d1;
+            color: rgb(133, 70, 106);
+            transform: rotateY(180deg);
+        }
+
+        .profile-img 
+        {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 20px;
+        }
+
+        .info-section 
+        {
+            margin: 20px 0;
+            padding: 20px;
+            background: #EBDFEB;
+            border-radius: 10px;
+            border-left: 4px solid #954C95;
+        }
+
+        .info-section h2 
+        {
+            color: #954C95;
+            margin-bottom: 15px;
+        }
+
+        .info-section p 
+        {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .click-hint 
+        {
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            margin-top: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse 
+        {
+            0%, 100% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .skills 
+        {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .skill-tag 
+        {
+            background: #954C95;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-tag:hover 
+        {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(149, 76, 149, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="marquee-container">
+        <div class="marquee">
+            <span class="marquee-text"><i class="fas fa-star"></i> Chào mừng đến với trang giới thiệu của tôi! <i class="fas fa-star"></i> Welcome to my personal page! <i class="fas fa-star"></i></span>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Giới Thiệu Bản Thân</h1>
+
+        <div class="flip-card-container">
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="hover-hint">
+                  Nhấn để xem thêm thông tin
+                </div>
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/front.jpg" alt="Profile" class="profile-img">
+                        <h2>Nguyễn Thị Yến Nhi</h2>
+                        <p>K23411409</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="images/back.jpg" alt="Profile" class="profile-img">
+                        <h2>Thông Tin Liên Hệ</h2>
+                        <p><i class="fas fa-envelope"></i> Email: nhinty1415@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> Điện thoại: 0123 456 789</p>
+                        <p><i class="fas fa-map-marker-alt"></i> TP. Hồ Chí Minh</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info-section">
+            <h2><i class="fas fa-user"></i> Về Tôi</h2>
+            <p>Xin chào! Tôi là Nguyễn Thị Yến Nhi. Tôi đam mê công nghệ và luôn tìm kiếm cơ hội để học hỏi và phát triển bản thân.</p>
+            <p>Tôi có kinh nghiệm trong nhiều lĩnh vực và luôn sẵn sàng đón nhận thử thách mới.</p>
+        </div>
+
+        <div class="info-section">
+            <h2><i class="fas fa-code"></i> Kỹ Năng</h2>
+            <div class="skills">
+                <span class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
+                <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+                <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                <span class="skill-tag"><i class="fas fa-paint-brush"></i> Thiết kế</span>
+                <span class="skill-tag"><i class="fas fa-tasks"></i> Quản lý dự án</span>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2><i class="fas fa-heart"></i> Sở Thích</h2>
+            <p><i class="fas fa-music"></i> Âm nhạc | <i class="fas fa-book"></i> Đọc sách | <i class="fas fa-plane"></i> Du lịch | <i class="fas fa-laptop"></i> Công nghệ | <i class="fas fa-palette"></i> Nghệ thuật</p>
+        </div>
+    </div>
+</body>
+</html>
