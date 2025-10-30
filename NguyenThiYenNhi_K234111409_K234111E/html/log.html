@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log - Nguyen Thi Yen Nhi</title>
+    <link rel="stylesheet" type="text/css" href="../css/mainstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    </style>
+</head>
+<body>
+    <!-- MENU  -->
+    <div id="menu">
+        <ul class="mainmenu">
+            <li><a href="about.html"><i class="fas fa-home"></i> About me</a></li>
+            <li>
+                <a href="#"><i class="fas fa-code"></i> Form & JavaScript</a>
+                <ul class="submenu js">
+                    <li><a href="product.html"><i class="fas fa-box"></i> Products</a></li>
+                    <li><a href="emp.html"><i class="fas fa-users"></i> Employees</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-cloud"></i> API and External</a>
+                <ul class="submenu api">
+                    <li><a href="weather.html"><i class="fas fa-cloud-sun"></i> Weather API</a></li>
+                    <li><a href="rss.html"><i class="fas fa-rss"></i> RSS</a></li>
+                </ul>
+            </li>
+            <li><a href="log.html" id="loginMenuLink"><i class="fas fa-sign-in-alt"></i> Login/Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- LEFT SIDE - Bên trái -->
+    <div class="left-side">
+        <div class="left-content">
+            <h3><i class="fas fa-dice"></i> Vietlott Jackpot</h3>
+            <p style="font-size: 12px; color: #666; margin-bottom: 15px;">Part B: Q8 - AJAX Implementation</p>
+            
+            <div class="radio-container-left">
+                <div class="radio-option-left">
+                    <input type="radio" id="mega645" name="lottery" value="mega645" checked>
+                    <label for="mega645"><i class="fas fa-trophy"></i> mega645</label>
+                </div>
+                <div class="radio-option-left">
+                    <input type="radio" id="power655" name="lottery" value="power655">
+                    <label for="power655"><i class="fas fa-star"></i> power655</label>
+                </div>
+            </div>
+            
+            <div class="loading-left" id="loading">
+                <p><i class="fas fa-spinner fa-spin"></i> Loading...</p>
+            </div>
+            
+            <div class="error-left" id="error"></div>
+            
+            <div class="results-left" id="results"></div>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE - Bên phải -->
+    <div class="side">
+        <marquee direction="down" behavior="scroll" loop="-1" scrollamount="10"> 
+            <p class="right">
+                <i class="fas fa-certificate"></i><br>
+                I declare that all of these solutions are my own and not copied from anyone in this class.
+            </p>
+        </marquee>
+    </div>
+
+    <!-- CONTAINER - Giữa -->
+    <div class="container">
+        <main class="content">
+            <div class="login-container">
+                <!-- Loading Overlay -->
+                <div id="loadingOverlay" class="loading-overlay">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Đang tải dữ liệu tài khoản...</p>
+                </div>
+
+                <!-- Login Form -->
+                <div id="loginForm">
+                    <h2>
+                        <i class="fas fa-sign-in-alt"></i>
+                        Đăng Nhập
+                    </h2>
+
+                    <div id="errorMessage" class="error-message">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span id="errorText"></span>
+                    </div>
+
+                    <div id="successMessage" class="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="successText"></span>
+                    </div>
+
+                    <form onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label for="username">
+                                <i class="fas fa-user"></i> Tên đăng nhập
+                            </label>
+                            <input 
+                                type="text" 
+                                id="username" 
+                                name="username" 
+                                placeholder="Nhập tên đăng nhập"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">
+                                <i class="fas fa-lock"></i> Mật khẩu
+                            </label>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                placeholder="Nhập mật khẩu"
+                                required
+                            >
+                        </div>
+
+                        <button type="submit" class="btn-login">
+                            <i class="fas fa-sign-in-alt"></i> Đăng Nhập
+                        </button>
+                    </form>
+
+                    <div class="info-box">
+                        <p>
+                            <strong><i class="fas fa-info-circle"></i> Lưu ý:</strong>
+                            Dữ liệu tài khoản được load từ file JSON. 
+                            Hệ thống sử dụng localStorage để lưu trạng thái đăng nhập.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Logout Section -->
+                <div id="logoutSection">
+                    <h2>
+                        <i class="fas fa-user-check"></i>
+                        Thông Tin Tài Khoản
+                    </h2>
+
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Xin chào!</h3>
+                        <p><strong>Họ tên:</strong> <span id="displayFullName"></span></p>
+                        <p><strong>Tên đăng nhập:</strong> <span id="displayUsername"></span></p>
+                        <p><strong>Vai trò:</strong> <span id="displayRole"></span></p>
+                        <p><strong>Thời gian đăng nhập:</strong> <span id="loginTime"></span></p>
+                        <p><strong>Trạng thái:</strong> <span style="color: #28a745;">✓ Đã đăng nhập</span></p>
+                    </div>
+
+                    <button onclick="handleLogout()" class="btn-login btn-logout">
+                        <i class="fas fa-sign-out-alt"></i> Đăng Xuất
+                    </button>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- FOOTER - Dưới cùng -->
+    <div class="footer-info">
+        <p>
+            <i class="fas fa-user-graduate"></i> 
+            <strong>Đây là bài làm của Nguyễn Thị Yến Nhi</strong>, thực hiện ngày 
+            <strong><i class="fas fa-calendar-alt"></i> <span id="currentDate"></span></strong>
+        </p>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Hiển thị ngày hiện tại
+        document.getElementById("currentDate").textContent = new Date().toLocaleDateString('vi-VN');
+
+        // Biến lưu danh sách tài khoản từ JSON
+        let validAccounts = [];
+
+        // Load accounts từ JSON file
+        async function loadAccounts() {
+            try {
+                // Hiển thị loading
+                document.getElementById('loadingOverlay').style.display = 'block';
+                
+                const response = await fetch('../data/accounts.json');
+                
+                if (!response.ok) {
+                    throw new Error('Không thể tải file accounts.json');
+                }
+                
+                const data = await response.json();
+                validAccounts = data.accounts;
+                
+                console.log('Đã load thành công', validAccounts.length, 'tài khoản từ JSON');
+                
+                // Ẩn loading
+                document.getElementById('loadingOverlay').style.display = 'none';
+                
+            } catch (error) {
+                console.error('Lỗi khi load accounts:', error);
+                document.getElementById('loadingOverlay').innerHTML = 
+                    '<i class="fas fa-exclamation-triangle" style="color: #dc3545;"></i>' +
+                    '<p style="color: #dc3545;">Lỗi: ' + error.message + '</p>' +
+                    '<p style="font-size: 12px;">Vui lòng kiểm tra đường dẫn file JSON</p>';
+                
+                // Fallback: Sử dụng dữ liệu mẫu nếu không load được JSON
+                validAccounts = [
+                    { 
+                        id: 1, 
+                        username: 'admin', 
+                        password: 'admin123',
+                        fullName: 'Quản Trị Viên',
+                        role: 'admin'
+                    },
+                    { 
+                        id: 2, 
+                        username: 'yennhi', 
+                        password: 'nhi2024',
+                        fullName: 'Nguyễn Thị Yến Nhi',
+                        role: 'user'
+                    }
+                ];
+            }
+        }
+
+        // Kiểm tra trạng thái đăng nhập khi tải trang
+        window.onload = async function() {
+            // Load accounts từ JSON trước
+            await loadAccounts();
+            
+            // Sau đó kiểm tra trạng thái đăng nhập
+            checkLoginStatus();
+            updateMenuLink();
+        };
+
+        // Kiểm tra trạng thái đăng nhập
+        function checkLoginStatus() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const userData = localStorage.getItem('userData');
+
+            if (isLoggedIn === 'true' && userData) {
+                try {
+                    const user = JSON.parse(userData);
+                    showLogoutSection(user);
+                } catch (error) {
+                    console.error('Lỗi parse userData:', error);
+                    showLoginForm();
+                }
+            } else {
+                showLoginForm();
+            }
+        }
+
+        // Xử lý đăng nhập
+        function handleLogin(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+
+            // Kiểm tra nếu chưa load xong accounts
+            if (validAccounts.length === 0) {
+                showError('Vui lòng đợi hệ thống tải dữ liệu tài khoản!');
+                return;
+            }
+
+            // Validate tài khoản
+            const validAccount = validAccounts.find(
+                account => account.username === username && account.password === password
+            );
+
+            if (validAccount) {
+                // Tạo object user data
+                const userData = {
+                    id: validAccount.id,
+                    username: validAccount.username,
+                    fullName: validAccount.fullName,
+                    role: validAccount.role,
+                    loginTime: new Date().toLocaleString('vi-VN')
+                };
+
+                // Lưu thông tin vào localStorage
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userData', JSON.stringify(userData));
+
+                // Hiển thị thông báo thành công
+                showSuccess('Đăng nhập thành công! Chào mừng ' + userData.fullName);
+
+                // Chuyển sang giao diện đăng xuất sau 1 giây
+                setTimeout(() => {
+                    showLogoutSection(userData);
+                    updateMenuLink();
+                }, 1000);
+            } else {
+                showError('Tên đăng nhập hoặc mật khẩu không đúng!');
+            }
+        }
+
+        // Xử lý đăng xuất
+        function handleLogout() {
+            if (confirm('Bạn có chắc chắn muốn đăng xuất?')) {
+                // Xóa thông tin khỏi localStorage
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('userData');
+
+                // Hiển thị form đăng nhập
+                showLoginForm();
+                showSuccess('Đăng xuất thành công!');
+                updateMenuLink();
+
+                // Xóa thông báo sau 2 giây
+                setTimeout(() => {
+                    hideMessages();
+                }, 2000);
+            }
+        }
+
+        // Hiển thị form đăng nhập
+        function showLoginForm() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('logoutSection').style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+
+        // Hiển thị section đăng xuất
+        function showLogoutSection(userData) {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('logoutSection').style.display = 'block';
+            document.getElementById('displayFullName').textContent = userData.fullName;
+            document.getElementById('displayUsername').textContent = userData.username;
+            document.getElementById('displayRole').textContent = 
+                userData.role === 'admin' ? '👑 Quản trị viên' : '👤 Người dùng';
+            document.getElementById('loginTime').textContent = userData.loginTime;
+        }
+
+        // Hiển thị thông báo lỗi
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+            errorText.textContent = message;
+            errorDiv.style.display = 'block';
+            document.getElementById('successMessage').style.display = 'none';
+
+            // Tự động ẩn sau 3 giây
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+            }, 3000);
+        }
+
+        // Hiển thị thông báo thành công
+        function showSuccess(message) {
+            const successDiv = document.getElementById('successMessage');
+            const successText = document.getElementById('successText');
+            successText.textContent = message;
+            successDiv.style.display = 'block';
+            document.getElementById('errorMessage').style.display = 'none';
+
+            // Tự động ẩn sau 3 giây
+            setTimeout(() => {
+                successDiv.style.display = 'none';
+            }, 3000);
+        }
+
+        // Ẩn tất cả thông báo
+        function hideMessages() {
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+        }
+
+        // Cập nhật link menu
+        function updateMenuLink() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const userData = localStorage.getItem('userData');
+            const menuLink = document.getElementById('loginMenuLink');
+
+            if (isLoggedIn === 'true' && userData) {
+                try {
+                    const user = JSON.parse(userData);
+                    menuLink.innerHTML = '<i class="fas fa-user"></i> ' + user.username + ' (Logout)';
+                } catch (error) {
+                    menuLink.innerHTML = '<i class="fas fa-sign-in-alt"></i> Login/Logout';
+                }
+            } else {
+                menuLink.innerHTML = '<i class="fas fa-sign-in-alt"></i> Login/Logout';
+            }
+        }
+    </script>
+</body>
+</html>

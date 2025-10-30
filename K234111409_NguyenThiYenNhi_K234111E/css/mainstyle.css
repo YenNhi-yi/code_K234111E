@@ -693,6 +693,12 @@ table tbody tr:hover {
   padding: 15px;
   border-radius: 8px;
   margin: 15px 0;
+  line-height: 0.7cm;
+}
+
+.info-box ul 
+{
+  padding-left: 20px;
 }
 
 .warning-box {

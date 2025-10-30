@@ -1,0 +1,217 @@
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather - Nguyen Thi Yen Nhi</title>
+    <link rel="stylesheet" type="text/css" href="../css/mainstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+    <!-- MENU  -->
+    <div id="menu">
+        <ul class="mainmenu">
+            <li><a href="about.html"><i class="fas fa-home"></i> About me</a></li>
+            <li>
+                <a href="#"><i class="fas fa-code"></i> Form & JavaScript</a>
+                <ul class="submenu js">
+                    <li><a href="product.html"><i class="fas fa-box"></i> Products</a></li>
+                    <li><a href="emp.html"><i class="fas fa-users"></i> Employees</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-cloud"></i> API and External</a>
+                <ul class="submenu api">
+                    <li><a href="weather.html"><i class="fas fa-cloud-sun"></i> Weather API</a></li>
+                    <li><a href="rss.html"><i class="fas fa-rss"></i> RSS</a></li>
+                </ul>
+            </li>
+            <li><a href="log.html"><i class="fas fa-sign-in-alt"></i> Login/Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- LEFT SIDE - Bên trái -->
+    <div class="left-side">
+        <div class="left-content">
+            <h3><i class="fas fa-dice"></i> Vietlott Jackpot</h3>
+            <p style="font-size: 12px; color: #666; margin-bottom: 15px;">Part B: Q8 - AJAX Implementation</p>
+            
+            <div class="radio-container-left">
+                <div class="radio-option-left">
+                    <input type="radio" id="mega645" name="lottery" value="mega645" checked>
+                    <label for="mega645"><i class="fas fa-trophy"></i> mega645</label>
+                </div>
+                <div class="radio-option-left">
+                    <input type="radio" id="power655" name="lottery" value="power655">
+                    <label for="power655"><i class="fas fa-star"></i> power655</label>
+                </div>
+            </div>
+            
+            <div class="loading-left" id="loading">
+                <p><i class="fas fa-spinner fa-spin"></i> Loading...</p>
+            </div>
+            
+            <div class="error-left" id="error"></div>
+            
+            <div class="results-left" id="results"></div>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE - Bên phải -->
+    <div class="side">
+        <marquee direction="down" behavior="scroll" loop="-1" scrollamount="10"> 
+            <p class="right">
+                <i class="fas fa-certificate"></i><br>
+                I declare that all of these solutions are my own and not copied from anyone in this class.
+            </p>
+        </marquee>
+    </div>
+
+    <!-- CONTAINER - Giữa -->
+    <div class="container">
+        <div class="header">
+            <h3>Dự Báo Thời Tiết Việt Nam</h3>
+        </div>
+        
+        <div class="search-box">
+            <select id="provinces" onchange="show_detail_weather_forecast(this.value)">
+                <option value="">-- Chọn tỉnh/thành phố --</option>
+            </select>
+        </div>
+        
+        <div id="my_div">
+            <p class="placeholder">Vui lòng chọn một tỉnh/thành phố để xem dự báo thời tiết 🌍</p>
+        </div>
+    </div>
+
+    <!-- FOOTER - Dưới cùng -->
+    <div class="footer-info">
+        <p>
+            <i class="fas fa-user-graduate"></i> 
+            <strong>Đây là bài làm của Nguyễn Thị Yến Nhi</strong>, thực hiện ngày 
+            <strong><i class="fas fa-calendar-alt"></i> <span id="currentDate"></span></strong>
+        </p>
+    </div>
+
+    <script type="text/javascript">
+        var ids=['2347719', '20070078', '20070086', '2347731', '2347730', '20070081', '20070087', '20070084', '20070088', '2347703', '2347704', '20070082', '2347732', '28301718', '20070085', '1252375', '2347720', '28301719', '2347721', '2347722', '2347733', '2347727', '2347728', '2347734', '2347741', '2347736', '2347737', '20070079', '20070080', '2347707', '28301720', '2347738', '2347723', '20070076', '2347708', '2347710', '2347740', '2347709', '2347718', '20070089', '2347742', '2347743', '2347744', '20070091', '2347745', '2347746', '2347711', '20070077', '2347712', '2347747', '2347748', '2347713', '2347715', '2347716', '20070083', '2347749', '2347717', '2347750', '2347751', '2347714', '2347752', '20070090', '2347729', '2347753'];
+        var names=['An Giang', 'Bình Dương', 'Bình Phước', 'Bình Thuận', 'Bình Định', 'Bạc Liêu', 'Bắc Giang', 'Bắc Kạn', 'Bắc Ninh', 'Bến Tre', 'Cao Bằng', 'Cà Mau', 'Cần Thơ', 'Điện Biên', 'Đà Nẵng', 'Đà Lạt', 'Đắk Lắk', 'Đắk Nông', 'Đồng Nai', 'Đồng Tháp', 'Gia Lai', 'Hà Nội', 'TP. Hồ Chí Minh', 'Hà Giang', 'Hà Nam', 'Hà Tĩnh', 'Hòa Bình', 'Hưng Yên', 'Hải Dương', 'Hải Phòng', 'Hậu Giang', 'Khánh Hòa', 'Kiên Giang', 'Kon Tum', 'Lai Châu', 'Long An', 'Lào Cai', 'Lâm Đồng', 'Lạng Sơn', 'Nam Định', 'Nghệ An', 'Ninh Bình', 'Ninh Thuận', 'Phú Thọ', 'Phú Yên', 'Quảng Bình', 'Quảng Nam', 'Quảng Ngãi', 'Quảng Ninh', 'Quảng Trị', 'Sóc Trăng', 'Sơn La', 'Thanh Hóa', 'Thái Bình', 'Thái Nguyên', 'Thừa Thiên Huế', 'Tiền Giang', 'Trà Vinh', 'Tuyên Quang', 'Tây Ninh', 'Vĩnh Long', 'Vĩnh Phúc', 'Vũng Tàu', 'Yên Bái'];
+
+        function load_provinces() {
+            var provinces = document.getElementById("provinces");
+            for (var i = 0; i < ids.length; i++) {
+                var opt = document.createElement("option");
+                opt.value = ids[i];
+                opt.innerText = names[i];
+                provinces.appendChild(opt);
+            }
+        }
+
+        load_provinces();
+
+        function show_detail_weather_forecast(value) {
+            if (!value) return;
+            
+            var proxy = "https://api.codetabs.com/v1/proxy?quest="; 
+            var api = "https://utils3.cnnd.vn/ajax/weatherinfo/" + value + ".htm";
+            var api_proxy = proxy + encodeURIComponent(api);
+            
+            var my_div = document.getElementById("my_div");
+            my_div.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>Đang tải dữ liệu thời tiết...</p></div>';
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", api_proxy, true);
+            xhr.send();
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        try {
+                            var response = JSON.parse(xhr.responseText);
+                            var weather = response.Data.data.datainfo;
+                            
+                            var html = '<div class="weather-card">';
+                            
+                            // Current weather
+                            html += '<div class="current-weather">';
+                            html += '<div class="weather-main">';
+                            html += '<div class="weather-icon"><img src="' + weather.shadow_icon + '" alt="weather"></div>';
+                            html += '<div class="weather-temp">' + weather.temperature + '<span class="degree">°' + weather.degree + '</span></div>';
+                            html += '</div>';
+                            html += '<div class="weather-info-main">';
+                            html += '<div class="location-name">' + weather.location + '</div>';
+                            html += '<div class="weather-status">' + weather.status + '</div>';
+                            html += '<div class="temp-range">↑ ' + weather.high + '° ↓ ' + weather.low + '°</div>';
+                            html += '</div>';
+                            html += '</div>';
+                            
+                            // Weather details
+                            html += '<div class="weather-details">';
+                            html += '<div class="detail-item"><div class="detail-label">Cảm giác như</div><div class="detail-value">' + weather.feels_like + '°C</div></div>';
+                            html += '<div class="detail-item"><div class="detail-label">Độ ẩm</div><div class="detail-value">' + weather.humidity + '</div></div>';
+                            html += '<div class="detail-item"><div class="detail-label">Tầm nhìn</div><div class="detail-value">' + weather.visibility.index + ' ' + weather.visibility.unit + '</div></div>';
+                            html += '<div class="detail-item"><div class="detail-label">Gió</div><div class="detail-value">' + weather.wind.index + ' ' + weather.wind.unit + '</div></div>';
+                            html += '<div class="detail-item"><div class="detail-label">UV Index</div><div class="detail-value">' + weather.UV_index.index + ' - ' + weather.UV_index.status + '</div></div>';
+                            html += '<div class="detail-item"><div class="detail-label">Mặt trời mọc</div><div class="detail-value">' + weather.sunrise + '</div></div>';
+                            html += '</div>';
+                            
+                            // Hourly forecast
+                            if (weather.hourly_temperature && weather.hourly_temperature.length > 0) {
+                                html += '<div class="hourly-forecast">';
+                                html += '<div class="section-title">Dự báo theo giờ</div>';
+                                html += '<div class="hourly-items">';
+                                weather.hourly_temperature.forEach(function(hour) {
+                                    html += '<div class="hourly-item">';
+                                    html += '<div class="hourly-time">' + hour.time + ':00</div>';
+                                    html += '<div class="hourly-icon"><img src="' + hour.shadow_icon + '" alt="weather"></div>';
+                                    html += '<div class="hourly-temp">' + hour.temperature + '°</div>';
+                                    html += '<div class="hourly-status">' + hour.status + '</div>';
+                                    html += '</div>';
+                                });
+                                html += '</div></div>';
+                            }
+                            
+                            // Daily forecast
+                            if (weather.forecast && weather.forecast.length > 0) {
+                                html += '<div class="daily-forecast">';
+                                html += '<div class="section-title">Dự báo 10 ngày tới</div>';
+                                html += '<div class="forecast-items">';
+                                weather.forecast.forEach(function(day) {
+                                    html += '<div class="forecast-item">';
+                                    html += '<div class="forecast-date">' + day.date + '<br><small>' + day.forecastDate + '</small></div>';
+                                    html += '<div class="forecast-icon"><img src="' + day.shadow_icon + '" alt="weather"></div>';
+                                    html += '<div class="forecast-status">' + day.status + '</div>';
+                                    html += '<div class="forecast-precipitation">💧 ' + day.precipitation + '</div>';
+                                    html += '<div class="forecast-temp"><span class="high">' + day.high + '°</span> / <span class="low">' + day.low + '°</span></div>';
+                                    html += '</div>';
+                                });
+                                html += '</div></div>';
+                            }
+                            
+                            // Air quality
+                            if (weather.air) {
+                                html += '<div class="air-quality">';
+                                html += '<div class="section-title">Chất lượng không khí</div>';
+                                html += '<div class="air-quality-header">';
+                                html += '<div class="air-icon"><img src="' + weather.air.icon + '" alt="air quality"></div>';
+                                html += '<div class="air-info">';
+                                html += '<div class="air-status">' + weather.air.status + '</div>';
+                                html += '<div class="air-index">AQI: ' + weather.air.aqi + ' - ' + weather.air.pollutants.index + ': ' + weather.air.pollutants.value + ' ' + weather.air.pollutants.unit + '</div>';
+                                html += '</div></div></div>';
+                            }
+                            
+                            html += '</div>';
+                            my_div.innerHTML = html;
+                        } catch (e) {
+                            my_div.innerHTML = '<div class="error"><h3> Lỗi khi xử lý dữ liệu</h3><p>' + e.message + '</p></div>';
+                        }
+                    } else {
+                        my_div.innerHTML = '<div class="error"><h3> Không thể tải dữ liệu</h3><p>Mã lỗi: ' + xhr.status + '</p></div>';
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "accounts": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin123",
+      "fullName": "Quản Trị Viên",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "username": "yennhi",
+      "password": "nhi2024",
+      "fullName": "Nguyễn Thị Yến Nhi",
+      "role": "user"
+    },
+    {
+      "id": 3,
+      "username": "user",
+      "password": "user123",
+      "fullName": "User Demo",
+      "role": "user"
+    }
+  ]
+}
